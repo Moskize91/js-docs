@@ -9,12 +9,12 @@
 
 ## 进阶教程 <a id="advanced-tutorial"></a>
 
-* [安装](installation.md)
-* [实时房间](realtime-room.md)
-* [教具](appliance.md)
-* [PPT 与页面管理](ppt-and-pages-management.md)
-* [视角](view.md)
-* [禁止操作](disable-operation.md)
-* [自定义行为](custom-behavior.md)
-* [回放](replay.md)
+* [安装](advanced-tutorial/installation.md)
+* [实时房间](advanced-tutorial/realtime-room.md)
+* [教具](advanced-tutorial/appliance.md)
+* [PPT 与页面管理](advanced-tutorial/ppt-and-pages-management.md)
+* [视角](advanced-tutorial/view.md)
+* [禁止操作](advanced-tutorial/disable-operation.md)
+* [自定义行为](advanced-tutorial/custom-behavior.md)
+* [回放](advanced-tutorial/replay.md)
 

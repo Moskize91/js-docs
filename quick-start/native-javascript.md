@@ -67,8 +67,8 @@ window.fetch(url, requestInit).then(function(response) {
             "token": sdkToken,
         },
         body: JSON.stringify({
-        	"lifespan": 0, // 表明 Room Token 永不失效
-        	"role": "admin", // 表明 Room Token 有 Admin 的权限
+            "lifespan": 0, // 表明 Room Token 永不失效
+            "role": "admin", // 表明 Room Token 有 Admin 的权限
         }),
     };
     fetch(url, requestInit).then(function(response) {
@@ -108,6 +108,4 @@ function joinRoom(roomUUID, roomToken) {
 使用浏览器打开 `index.html` 文件，你将看到一个空白页面。使用鼠标在该页面上写写画画，可以看到笔迹。
 
 ![Netless &#x4E92;&#x52A8;&#x767D;&#x677F;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E0A;&#x7684;&#x6A21;&#x6837;](../.gitbook/assets/jie-ping-20200526-16.38.10.png)
-
-
 
