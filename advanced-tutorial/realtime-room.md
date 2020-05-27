@@ -1,22 +1,24 @@
 ---
-description: 创建、加入一个可以实时互动的白板
+description: 创建、加入实时互动的白板
 ---
 
 # 实时房间
 
-每一个白板都属于一个房间。某一个人在白板上写写画画的轨迹可以被同一个房间里的其他人看到。本章教你如何创建一个可以实时互动的房间，并管理房间的状态。
+每一个白板都属于一个房间。白板上写写画画的轨迹可以被房间里所有人看到。本章将涉及，如何创建时互动的房间，如何管理房间的状态。
 
 {% hint style="info" %}
-本章教程只会让你把房间状态管理的相关内容涉猎一遍。如果你想深入了解相关内容，可以在阅读完本章后参考[《实时房间状态管理》](https://developer.netless.group/documents/client/realtime-room-state-management)。
+本章教程只会把房间状态管理的相关内容涉猎一遍。如果想深入了解相关内容，可以在阅读完本章后，进一步阅读[《实时房间状态管理》](https://developer.netless.group/documents/client/realtime-room-state-management)。
 {% endhint %}
 
 ## 创建房间
 
-Netless 互动白板的一切都基于房间，只有创建了房间，你才能开始互动白板之旅。为了创建一个房间，你需要准备一个 App Identifier。此物用来表明这个房间是归哪个应用所有（应用从管理控制台创建）。有了它，我们就知道是你的企业账号要创建房间。此后，该房间产生的一切费用也将关联到你的企业账号。
+Netless 互动白板的一切基于房间。创建了房间的那一刻，才是开始互动白板之旅之时。为了创建房间，你需要准备 App Identifier 和 SDK Token。
 
-此外，你还需在应用下签出 SDK Token，以标示你的企业账号的授权。我们的服务端会通过 SDK Token 确认操作是合法的。
+App Idnetifier 表明了房间归哪个应用所有。应用和企业账号关联。如此一来，房间产生的费用就可以关联到企业账号了。
 
-你可以阅读[《应用与权限》](https://developer.netless.group/documents/guan-li-kong-zhi-tai/applications-and-authority)来了了解如何得到 App Identifier 和 SDK Token。然后，通过如下代码，来调用我们的服务端 API 以创建房间。
+SDK Token 由应用签出。带上它，Netless 服务能确定创建房间的操作得到了授权。你可以阅读[《应用与权限》](https://developer.netless.group/documents/guan-li-kong-zhi-tai/applications-and-authority)来了了解如何得到 App Identifier 和 SDK Token。
+
+准备完毕后，通过如下代码，调用 Netless 服务的 API 来创建房间。
 
 ```javascript
 var url = "https://shunt-api.netless.link/v5/rooms";
@@ -41,7 +43,7 @@ window.fetch(url, requestInit).then(function(response) {
 });
 ```
 
-这段如果执行成功，将创建一个实时互动房间。我们的服务端将以 JSON 的方式返回一个 object，以描述你刚刚创建好的房间信息。不出所料，这个 JSON 会包含如下信息。
+如果执行成功，将创建一个实时互动房间。Netless 服务端会返回一个 JSON 形式 object，来描述刚刚创建好的房间的信息。不出所料，这个 JSON 会包含如下信息。
 
 ```javascript
 {
@@ -55,21 +57,21 @@ window.fetch(url, requestInit).then(function(response) {
 }
 ```
 
-其中，最重要的字段是 `uuid`。
+其中 `uuid`是最重要的字段。
 
 {% hint style="warning" %}
-创建房间的操作建议在你的业务服务端上做，不要放在前端或客户端上做。此处为了完整演示，使用前端的 window.fetch 直接调用 Netless 服务端 API。请勿在正式的 Web 应用中模仿。
+建议在业务服务器上执行创建房间的操作，不要在前端或客户端上做。本章为了演示完整流程，用了前端的 window.fetch 方法调用 Netless 服务端 API。请勿在正式的 Web 应用中消防此行为。
 {% endhint %}
 
 {% hint style="warning" %}
-SDK Token 是你的公司和团队的重要资产，原则上它只能在业务服务器中产生并使用。**绝对不能写死在前端、客户端应用中！绝对不要通过网络传输给前端、客户端！**以防止他人通过反编译、抓包等途径窃取 SDK Token。一旦 SDK Token 泄漏，将带来严重的安全问题。
+SDK Token 是公司和团队的重要资产，原则上只能在业务服务器中产生并使用。**绝对不能写死在前端！绝对不要通过网络传输给前端！**提防他人通过反编译、抓包等途径来窃取 SDK Token。一旦 SDK Token 泄漏，会有严重的安全问题。
 {% endhint %}
 
 ## 房间的标示与鉴权
 
-你的账号可以创建无数个房间。每一个房间都有 `uuid` ，这是一个用于唯一标示的字符串。此外，如果要访问特定房间，需要签出对应房间的 Room Token。
+你的账号可以创建无数个房间。每一个房间都有 `uuid` ，这是一个可以唯一标示的字符串。另外，如果要访问特定房间，首先要签出该房间的 Room Token。
 
-你可以调用服务端 API，来基于 SDK Token 生成 Room Token。
+调用服务端 API，基于 SDK Token 生成 Room Token。
 
 ```javascript
 var uuid = "特定房间的 uuid";
@@ -97,10 +99,12 @@ fetch(url, requestInit).then(function(response) {
 });
 ```
 
-Room Token 只能访问特定的房间，权限比 SDK Token 弱，因此可以根据业务逻辑分发给特定客户端。
+Room Token 只能访问指定房间，权限比 SDK Token 弱，可以根据业务逻辑分发给特定客户端。
 
 {% hint style="warning" %}
-签出 Room Token 需要调用 Netless 服务端 API。出于安全考虑，该操作不要在前端做。当前端需要 Room Token 时，应该调用业务服务器的 API，再由业务服务器调用 Netless 服务端的 API 签出 Room Token。以避免 SDK Token 泄漏到前端。
+由于必须通过 Netless 服务端 API 签出 Room Token，而该行为必须用到 SDK Token。显然，出于安全方面的顾虑，该操作不能在前端做。
+
+当前端需要 Room Token 时，应该先调用业务服务器的 API，再由业务服务器调用 Netless 服务端 API 签出 Room Token。
 {% endhint %}
 
 ## 加入房间
