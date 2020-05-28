@@ -1,5 +1,5 @@
 ---
-description: 创建、加入实时互动的白板
+description: 创建、加入实时互动白板
 ---
 
 # 实时房间
@@ -14,9 +14,9 @@ description: 创建、加入实时互动的白板
 
 Netless 互动白板的一切基于房间。创建了房间的那一刻，才是开始互动白板之旅之时。为了创建房间，你需要准备 App Identifier 和 SDK Token。
 
-App Idnetifier 表明了房间归哪个应用所有。应用和企业账号关联。如此一来，房间产生的费用就可以关联到企业账号了。
+App Idnetifier 表明了房间归哪个应用所有。应用和企业账号关联。如此一来，房间产生的费用才可以关联到企业账号。
 
-SDK Token 由应用签出。带上它，Netless 服务能确定创建房间的操作得到了授权。你可以阅读[《应用与权限》](https://developer.netless.group/documents/guan-li-kong-zhi-tai/applications-and-authority)来了了解如何得到 App Identifier 和 SDK Token。
+SDK Token 由应用签出。带上它，Netless 服务才确定创建房间的操作得到了授权。你可以阅读[《应用与权限》](https://developer.netless.group/documents/guan-li-kong-zhi-tai/applications-and-authority)来了了解如何获取 App Identifier 和 SDK Token。
 
 准备完毕后，通过如下代码，调用 Netless 服务的 API 来创建房间。
 
@@ -43,7 +43,7 @@ window.fetch(url, requestInit).then(function(response) {
 });
 ```
 
-如果执行成功，将创建一个实时互动房间。Netless 服务端会返回一个 JSON 形式 object，来描述刚刚创建好的房间的信息。不出所料，这个 JSON 会包含如下信息。
+如果执行成功，将创建一个实时互动房间。Netless 服务端会返回一个 JSON 形式的 object，来描述刚刚创建好的房间的信息。不出所料，这个 JSON 包含的内容如下。
 
 ```javascript
 {
@@ -60,18 +60,18 @@ window.fetch(url, requestInit).then(function(response) {
 其中 `uuid`是最重要的字段。
 
 {% hint style="warning" %}
-建议在业务服务器上执行创建房间的操作，不要在前端或客户端上做。本章为了演示完整流程，用了前端的 window.fetch 方法调用 Netless 服务端 API。请勿在正式的 Web 应用中消防此行为。
+建议在业务服务器上执行创建房间的操作，不要在前端或客户端上做。本章为了演示完整流程，用了前端的 window.fetch 方法调用 Netless 服务端 API。请勿在正式 Web 应用中消效仿此行为。
 {% endhint %}
 
 {% hint style="warning" %}
-SDK Token 是公司和团队的重要资产，原则上只能在业务服务器中产生并使用。**绝对不能写死在前端！绝对不要通过网络传输给前端！**提防他人通过反编译、抓包等途径来窃取 SDK Token。一旦 SDK Token 泄漏，会有严重的安全问题。
+SDK Token 是公司和团队的重要资产，原则上只能在业务服务器中产生并使用。**绝对不能写死在前端！绝对不要通过网络传输给前端！**否则**，**别人可以通过反编译、抓包等途径来窃取 SDK Token。SDK Token 一旦泄漏，会带来严重的安全问题。
 {% endhint %}
 
 ## 房间的标示与鉴权
 
-你的账号可以创建无数个房间。每一个房间都有 `uuid` ，这是一个可以唯一标示的字符串。另外，如果要访问特定房间，首先要签出该房间的 Room Token。
+在加入房间之前，要先准备房间的 UUID 和 Room Token。其中，UUID 是用来唯一标示房间的字符串。而 Room Token 用于加入房间时的健全。
 
-调用服务端 API，基于 SDK Token 生成 Room Token。
+你可以通过调用服务端 API 的方法，为特定房间签出 Room Token。同创建房间一样，这个过程也需要提供 SDK Token。
 
 ```javascript
 var uuid = "特定房间的 uuid";
@@ -99,23 +99,23 @@ fetch(url, requestInit).then(function(response) {
 });
 ```
 
-Room Token 只能访问指定房间，权限比 SDK Token 弱，可以根据业务逻辑分发给特定客户端。
+Room Token 只能访问指定房间，权限比 SDK Token 弱，可以根据业务逻辑分发给前端。
 
 {% hint style="warning" %}
-由于必须通过 Netless 服务端 API 签出 Room Token，而该行为必须用到 SDK Token。显然，出于安全方面的顾虑，该操作不能在前端做。
+由于必须通过 Netless 服务端 API 签出 Room Token，而该行为必须用到 SDK Token。显然，出于安全方面的顾虑，该操作也不能在前端做。
 
 当前端需要 Room Token 时，应该先调用业务服务器的 API，再由业务服务器调用 Netless 服务端 API 签出 Room Token。
 {% endhint %}
 
 ## 加入房间
 
-当你创建了一个实时互动房间，并获取了它的 `uuid` 和 `roomToken` 之后，你就可以在前端加入房间了。
+在创建了一个实时互动房间，并获取到了 `uuid` 和 `roomToken` 之后，就可以凭这两个参数，在前端调用方法加入房间了。
 
-> 思考一下，uuid 和 roomToken 应该如何传递给前端。这往往取决于你的业务逻辑，你可以和团队中的产品经理交流，以设计一个合理的方式。
+> 思考一下，uuid 和 roomToken 应该如何传递给前端？其实这取决于业务逻辑，你可以和团队中的产品经理交流，以设计一个合理的方式。
 >
-> 例如，先请求业务服务器的 API 读取房间列表（每一项中包含房间的 `uuid`）。当点击其中某一个房间时，读取项中的 `uuid` 。并发起一个 fetch 请求调用你的业务服务器 API，并在业务服务器使用 SDK Token 签出 Room Token。
+> 比如，先请求业务服务器的 API 读取房间列表（每一项中包含房间的 `uuid`）。当点击其中某一个房间时，读取项中的 `uuid` 。并发起一个 fetch 请求调用业务服务器的 API，让服务端应用使用 SDK Token 签出 Room Token，再返回给前端。
 
-在加入房间之前，你需要创建 `WhiteWebSDK` 实例。
+首先，创建 `WhiteWebSDK` 实例。
 
 ```javascript
 import { WhiteWebSDK } from "white-web-sdk";
@@ -125,11 +125,13 @@ var whiteWebSDK = new WhiteWebSDK({
 });
 ```
 
-这个 `whiteWebSDK` 实例我们今后会多次用到。建议将其作为单例全局变量。然后，你可以通过如下代码加入房间。
+这个 `whiteWebSDK` 实例我们今后会多次用到。建议将其作为单例全局变量。
+
+然后，通过如下代码加入房间。
 
 ```javascript
 var joinRoomParams = {
-    uuid: roomUUID,
+    uuid: uuid,
     roomToken: roomToken,
 };
 
@@ -142,9 +144,9 @@ whiteWebSdk.joinRoom(joinRoomParams).then(function(room) {
 });
 ```
 
-加入房间成功后，我们拿到了 SDK 返回的 `room` 对象。这个对象很重要，所有涉及该房间的操作都基于该对象。
+成功加入房间后，会通过回调拿到 `room` 对象。这是一个重要的对象，之后，我们所有代码都要围绕它来写。
 
-现在，我们希望在网页上将该白板展示出来。在此之前，你需要在网页的 Dom 树中准备白板占位符。
+现在，让我们把互动白板在网页上展示出来把。在此之前，还需要在网页的 Dom 树中准备白板占位符。
 
 ```markup
 <div id="whiteboard" style="width: 100%; height: 100vh;"></div>
@@ -156,28 +158,28 @@ whiteWebSdk.joinRoom(joinRoomParams).then(function(room) {
 room.bindHtmlElement(document.getElementById("whiteboard"));
 ```
 
-之后，你可以在网页上使用鼠标画出线条。致此，说明房间加入成功，白板也显示成功了。如果并非如此，你可能碰到了问题。
+之后，你就可以用鼠标在网页上画出线条。致此，说明成功加入房间了，成功显示白板了。若非如此，你可能碰到了问题。
 
 ### 问题：我的网页无法画出线条，怎么办？
 
-我们首先需要确定房间是否加入成功。你可以先通过浏览器的开发模式进入 Console 页面，来查看代码输出的日志。如果看到了报错信息（这些信息往往以醒目的红色标明），我们几乎可以确定房间加入失败了。
+首先，要确定房间是否加入成功。你可以先通过浏览器的开发模式进入 Console 页面，来查看代码输出的日志。如果看到了报错信息（这些信息往往以醒目的红色标明），那么，几乎可以确定房间加入失败了。
 
-我们可以读一读这些报错信息。但这些报错无外乎是如下原因导致的：
+读一读这些报错信息，分析分析可能的原因。其实，原因无外乎如下：
 
-* 你的网络有问题，前端代码无法访问 Netless 的服务器。
-* **你输入了错误的 `uuid` 和 `roomToken`。**
-* 你的企业账号欠费停服了。
-* 你的 SDK 版本过低，应该尝试升级到最新版本。
+* 网络有问题，前端代码无法访问 Netless 的服务器。
+* **输入了错误的 `uuid` 和 `roomToken`。**
+* 企业账号欠费停服了。
+* SDK 版本过低，先尝试升级到最新版本。
 
-相反，如果你没有发现任何报错信息，那只少意味着你成功加入房间了。排除了这一因素，我们需要开始怀疑是不是样式显示错误。
+相反，如果 Console 没有任何报错信息，那至少意味着房间加入成功了。排除房间加入失败这一因素，我们再来看看，是不是样式显示的问题。
 
-你可以通过浏览器的开发模式进入 Elements 页面，找到作为白板占位符的 `<div>`。看一看它的尺寸。如果它的宽高的任何一项是 `0px` ，则可以定位这是样式显示问题导致的。
+通过浏览器的开发模式进入 Elements 页面，找到白板占位符 `<div>`。看一看它的尺寸。如果宽高的任何一项是 `0px` ，就可以肯定，是样式出了问题。
 
-你可以调整你的 Dom 中的样式安排，即调整 `<div>` 的 `style` 属性和 `class` 属性，直到白板占位符 `<div>` 的尺寸符合你的预想。这是前端工程师工作中一直在做的事情，相信对于你来说是轻车熟路了。
+为了解决样式问题，需要调整Dom 中的样式安排，即调整 `<div>` 的 `style` 属性和 `class` 属性，直到白板占位符 `<div>` 的尺寸符合预想。这是前端工程师工作中一直在做的事情，相信对于你来说是轻车熟路了。
 
 ## 在 React 项目中展示互动白板
 
-如果你使用 `react` 来管理网页视图，你无需设置白板占位符 `<div>` 。在加入房间成功后，你会拿到 `room` 对象。之后，你可以通过如下代码将互动白板展示出来。
+如果你使用 `react` 来管理网页视图，则无需设置白板占位符 `<div>` 。在成功加入房间并拿到 `room` 对象之后，通过如下代码便可将互动白板展示出来。
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -223,16 +225,16 @@ Netless 互动白板为 React 项目提供了专门的 SDK：`white-react-sdk`�
 
 ## 离开房间
 
-当业务上不再使用互动白板，就应该离开房间了。Netless 互动白板**不会**自动离开房间，这一切需要你手动操作。出于如下理由，我们不应该遗忘「离开房间」操作。
+如果不再使用白板了，就应该离开房间。Netless 互动白板**不会**自动离开房间。出于如下理由，我们不应该遗漏「离开房间」操作。
 
 * 不离开房间的话，浏览器将维持与 Netless 服务器的长连接。这将消耗前端用户设备的包括网络带宽在内的各种资源。
 * Netless 会对没有离开房间的用户继续收费。维持不必要的长连接将导致你所在的团队或公司产生不必要的开支。
 
 {% hint style="success" %}
-如果用户直接关闭浏览器，或关闭当前网页 Tab，房间会自动释放，无需担心。
+如果用户直接关闭浏览器，或关闭当前网页 Tab，会自动释放房间，无需担心。
 {% endhint %}
 
-你可以通过如下代码主动离开房间。
+如下代码可以主动离开房间。如果不再需要房间，记得调用，否则房间会泄漏。
 
 ```javascript
 room.disconnect().then(function() {
@@ -242,25 +244,23 @@ room.disconnect().then(function() {
 });
 ```
 
-如果你没有主动离开房间，将造成房间泄漏。总之，你不会希望发生这种事情。
-
 {% hint style="info" %}
-当你发现 Netless 给发给你的账单高于预期，这很可能是「房间泄漏」的重要标志。此时此刻，你可以排查应用的业务逻辑代码，或重构那些可能导致状态混乱的地方。
+如果发现 Netless 给发的账单高于预期，这很可能是「房间泄漏」导致的。此时此刻，你可以排查应用的业务逻辑代码，或重构那些可能导致状态混乱的地方。
 
-当你彻底修复「房间泄漏」问题，你会发现账单开始符合预期。
+彻底修复「房间泄漏」问题之后，你会发现账单开始符合预期。
 {% endhint %}
 
 ## 异常流程处理
 
-一个稳健的应用程序，它的业务流程应该包含异常流程处理。你的 Web 应用最终将运行在千家万户的浏览器之上。千家万户的网络问题、DNS 问题、鉴权问题，总之各种问题一定会涌现出来。倘若不处理，上线即是灾难。**我们强烈建议你在设计业务逻辑之初就将异常流程考虑在内。**
+为了保证应用程序能稳定运行，在业务流程设计之初，就应该考虑到异常流程处理。想象一下，你的 Web 应用运行在千家万户的浏览器之上。千家万户的网络问题、DNS 问题、鉴权问题，各种问题源源不断地涌现出来。
 
-Netless 互动白板的实时房间对异常流程的支持，有如下部分。
+倘若不处理异常流程，上线即是灾难。**我们强烈建议你在设计业务逻辑之初就将异常流程考虑在内。**Netless 互动白板提供了多种方式让你能处理实时房间的异常流程。
 
 ### 异步调用方法都会返回 Promise
 
 例如，`joinRoom` 和 `disconnect` 都会返回一个 Promise 对象。如果你对 Promise 对象不熟悉，可以先阅读[《Promise - JavaScript \| MDN》](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)。
 
-异步调用方法失败，则会抛出错误。你可以通过如下方式截获错误，并进入异常处理流程。
+异步调用方法失败，则会抛出错误。通过如下方式截获错误，并进入异常处理流程。
 
 ```javascript
 room.disconnect().catch(function (err) {
@@ -268,7 +268,7 @@ room.disconnect().catch(function (err) {
 });
 ```
 
-如果你的开发环境支持 `async` 、`await` 语法，你可以将代码写成如下形式。
+如果你的开发环境支持 `await` 语法，可以将代码写成如下形式。
 
 ```javascript
 try {

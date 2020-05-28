@@ -1,12 +1,12 @@
 # 原生 JavaScript
 
-本章介绍在不使用任何框架和工具的前提下，如何以纯 JavaScript 接入 Netless 互动白板 SDK。
+本章介绍在不使用任何框架和工具的前提下，介绍如何以纯 JavaScript 接入 Netless 互动白板 SDK。
 
 {% hint style="info" %}
 在此之前，你需要在 Netless 的管理控制台注册一个企业账号，并创建一个应用。然后获取此应用中的 `App Identifier` 和，并生成此应用的 `SDK Token`。
 {% endhint %}
 
-你可以阅读[《应用与权限》](https://developer.netless.group/documents/guan-li-kong-zhi-tai/applications-and-authority)来了解具体操作。成功之后，获得如下内容。如下内容仅供展示，你账号对应的内容需亲自操作获取。
+你可以阅读[《应用与权限》](https://developer.netless.group/documents/guan-li-kong-zhi-tai/applications-and-authority)来了解具体操作。成功之后，你会获得如下内容。
 
 ```text
 # App Identifier:
@@ -16,7 +16,9 @@
 NETLESSSDK_YWs9UU9JSkJobEZfYlBPLXdNeSZub25jZT0xNTg3MDkyMzUxMTQ0MDAmcm9sZT0wJnNpZz1mYmUzOTI3MjhkZmVhNTc4MzllZTdhNWQ3N2RhZjdjNjkyZmUwNzk1Y2M2MGFhMzE1Y2YxZDY1YmMxODkxNmRi
 ```
 
-创建一个文件夹，来存放 HTML 文件和 JS 文件。然后，在这个文件夹中新建一个名为 `index.html` 的文件，用编辑器打开它，并插入如下内容。
+这段内容只是举个例子。你需要亲自操作获取自己的内容。
+
+之后，创建一个文件夹，这将来存放 HTML 文件和 JS 文件。然后，在这个文件夹中新建一个名为 `index.html` 的文件，用编辑器打开它，并插入如下内容。
 
 ```markup
 <!DOCTYPE html>
@@ -34,7 +36,7 @@ NETLESSSDK_YWs9UU9JSkJobEZfYlBPLXdNeSZub25jZT0xNTg3MDkyMzUxMTQ0MDAmcm9sZT0wJnNpZ
 
 其中的 `<div id="whiteboard">`是互动白板的占位符。随后，你将通过 JavaScript 调用互动白板 SDK 的方法，来在这个 `<div>` 注入白板的实体。
 
-最后，在此文件夹中新建名为 `index.js` 的文件。用编辑器打开它，并插入如下内容。
+然后，在此文件夹中新建名为 `index.js` 的文件。用编辑器打开它，并插入如下内容。
 
 ```javascript
 var sdkToken = "阅读《应用与权限》获取 SDK Token";
@@ -104,7 +106,7 @@ function joinRoom(roomUUID, roomToken) {
 }
 ```
 
-用浏览器打开 `index.html` 文件，将看到一个空白页面。用鼠标在该页面上写写画画，若一切顺利，可以看到笔迹。
+最后，用浏览器打开 `index.html` 文件，将看到一个空白页面。用鼠标在该页面上写写画画，若一切顺利，可以看到笔迹。
 
 ![Netless &#x4E92;&#x52A8;&#x767D;&#x677F;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E0A;&#x7684;&#x6A21;&#x6837;](../.gitbook/assets/jie-ping-20200526-16.38.10.png)
 
