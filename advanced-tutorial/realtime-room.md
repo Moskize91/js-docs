@@ -87,7 +87,7 @@ var requestInit = {
         "role": "admin", // 表明 Room Token 有 Admin 的权限
     }),
 };
-fetch(url, requestInit).then(function(response) {
+window.fetch(url, requestInit).then(function(response) {
     return response.json();
 
 }).then(function(roomToken) {

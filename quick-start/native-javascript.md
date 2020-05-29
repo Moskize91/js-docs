@@ -1,6 +1,10 @@
+---
+description: 用原生 JavaScript 快速开发一个互动白板应用
+---
+
 # 原生 JavaScript
 
-本章介绍在不使用任何框架和工具的前提下，介绍如何以纯 JavaScript 接入 Netless 互动白板 SDK。
+本章介绍在不使用任何框架和工具的前提下，介绍如何以纯 JavaScript 接入White SDK，并开发 Web 互动白板应用。
 
 {% hint style="info" %}
 在此之前，你需要在 Netless 的管理控制台注册一个企业账号，并创建一个应用。然后获取此应用中的 `App Identifier` 和，并生成此应用的 `SDK Token`。
@@ -37,6 +41,10 @@ NETLESSSDK_YWs9UU9JSkJobEZfYlBPLXdNeSZub25jZT0xNTg3MDkyMzUxMTQ0MDAmcm9sZT0wJnNpZ
 其中的 `<div id="whiteboard">`是互动白板的占位符。随后，你将通过 JavaScript 调用互动白板 SDK 的方法，来在这个 `<div>` 注入白板的实体。
 
 然后，在此文件夹中新建名为 `index.js` 的文件。用编辑器打开它，并插入如下内容。
+
+{% hint style="info" %}
+记得将下列代码的第 1 行和第 2 行的字符串替换成你提前准备好的内容。
+{% endhint %}
 
 ```javascript
 var sdkToken = "阅读《应用与权限》获取 SDK Token";
