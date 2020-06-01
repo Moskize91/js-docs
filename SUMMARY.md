@@ -43,5 +43,4 @@
 * [版本历史](version/release-nodes.md)
 * [2.9.0 迁移指南](version/migrate-to-2.9.0.md)
 * [2.8.0 迁移指南](version/migrate-to-2.8.0.md)
-* [2.0.0 迁移指南](version/migrate-to-2.0.0.md)
 

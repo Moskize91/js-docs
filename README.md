@@ -32,7 +32,5 @@ description: 根据你的需要阅读 Netless 的文档
 
 {% page-ref page="version/migrate-to-2.8.0.md" %}
 
-{% page-ref page="version/migrate-to-2.0.0.md" %}
-
 
 
