@@ -11,6 +11,10 @@
 
 ## 2.9.0 - 2020-05-23
 
+{% hint style="info" %}
+该版本有 API 变动，若从低版本升级到此版本及以上版本，建议参考[《2.9.0 迁移指南》](https://developer.netless.group/javascript/version/migrate-to-2.9.0)。
+{% endhint %}
+
 ### 新增
 
 * 直线工具
@@ -28,6 +32,10 @@
 * 某些时候，以只读模式加入房间后，进行设备操作会在 Console 报错
 
 ## 2.8.0 - 2020-05-12
+
+{% hint style="info" %}
+该版本有 API 变动，若从低版本升级到此版本及以上版本，建议参考[《2.8.0 迁移指南》](https://developer.netless.group/javascript/version/migrate-to-2.8.0)。
+{% endhint %}
 
 ### 更新
 
