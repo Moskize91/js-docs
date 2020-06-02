@@ -12,7 +12,7 @@
 ## 2.9.0 - 2020-05-23
 
 {% hint style="info" %}
-该版本有 API 变动，若从低版本升级到此版本及以上版本，建议参考[《2.9.0 迁移指南》](/javascript/version/migrate-to-2.9.0)。
+该版本有 API 变动，若从低版本升级到此版本及以上版本，建议参考[《2.9.0 迁移指南》](https://developer.netless.group/javascript/version/migrate-to-2.9.0)。
 {% endhint %}
 
 ### 新增
@@ -34,12 +34,12 @@
 ## 2.8.0 - 2020-05-12
 
 {% hint style="info" %}
-该版本有 API 变动，若从低版本升级到此版本及以上版本，建议参考[《2.8.0 迁移指南》](/javascript/version/migrate-to-2.8.0)。
+该版本有 API 变动，若从低版本升级到此版本及以上版本，建议参考[《2.8.0 迁移指南》](https://developer.netless.group/javascript/version/migrate-to-2.8.0)。
 {% endhint %}
 
 ### 更新
 
-* 不兼容改动：该版本初始化时，必须增加一个 APP identitier 参数，通过 console 获取对应账号的 App Identifier。改动见[《2.8.0 迁移指南》](/javascript/version/migrate-to-2.8.0)。
+* 不兼容改动：该版本初始化时，必须增加一个 APP identitier 参数，通过 console 获取对应账号的 App Identifier。改动见[《2.8.0 迁移指南》](https://developer.netless.group/javascript/version/migrate-to-2.8.0)。
 
 ### 修复
 

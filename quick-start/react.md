@@ -12,7 +12,7 @@ description: 用 React 快速开发一个互动白板应用
 
 ## 准备工作
 
-你可以阅读[《应用与权限》](/documents/guan-li-kong-zhi-tai/applications-and-authority)来了解具体操作。成功之后，你会获得如下内容。
+你可以阅读[《应用与权限》](https://developer.netless.group/documents/guan-li-kong-zhi-tai/applications-and-authority)来了解具体操作。成功之后，你会获得如下内容。
 
 ```bash
 # App Identifier:
@@ -182,7 +182,7 @@ class App extends React.Component {
 
     render() {
         var whiteboardView = null;
-
+        
         // 创建并加入房间是一个异步操作。
         // 如果 this.state.room 还没准备好，则不显示白板。
         if (this.state.room) {

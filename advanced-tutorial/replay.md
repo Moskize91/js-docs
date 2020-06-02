@@ -6,7 +6,7 @@ description: 录制、回放、回朔自定义行为
 
 Netless 以记录信令的方式实现录制、回放功能。相较于传统的录屏模式，仅需少量带宽，回放时便输出高清的结果。只要调整好参数，Netless 云端就会自动录制实时房间的内容。
 
-到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目。如果没有，你可能跳过了之前的章节，强烈建议先阅读[《安装》](/javascript/advanced-tutorial/installation)。
+到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目。如果没有，你可能跳过了之前的章节，强烈建议先阅读[《安装》](https://developer.netless.group/javascript/advanced-tutorial/installation)。
 
 ## 开启云端录制
 
@@ -46,7 +46,7 @@ window.fetch(url, requestInit).then(function(response) {
 SDK Token 是公司和团队的重要资产，原则上只能在业务服务器中产生并使用。**绝对不能写死在前端！绝对不要通过网络传输给前端！**否则**，**别人可以通过反编译、抓包等途径来窃取 SDK Token。SDK Token 一旦泄漏，会带来严重的安全问题。
 {% endhint %}
 
-开启之后，该房间的一切实时互动行为都会被 Netless 云端自动录制下来。更多关于创建房间 API 的内容，请参考[《房间 ｜ 服务端》](/server/api-reference/room#chuang-jian-fang-jian)。
+开启之后，该房间的一切实时互动行为都会被 Netless 云端自动录制下来。更多关于创建房间 API 的内容，请参考[《房间 ｜ 服务端》](https://developer.netless.group/server/api-reference/room#chuang-jian-fang-jian)。
 
 ## 在前端回放已录制好的内容
 
@@ -61,7 +61,7 @@ var replayRoomParams = {
 };
 whiteWebSdk.replayRoom(replayRoomParams).then(function (player) {
     // 获取到回放数据，成功初始化播放器实例
-
+    
 }).catch(function(err) {
     // 获取回放数据失败
     console.error(err);
@@ -73,7 +73,7 @@ whiteWebSdk.replayRoom(replayRoomParams).then(function (player) {
 ```javascript
 whiteWebSdk.replayRoom({
     ...otherReplayRoomParams,
-
+    
     beginTimestamp: new Date("2020-01-01 08:00:00").getTime(),
     duration: 45 * 60 * 1000,
 });
@@ -113,7 +113,7 @@ class App extends React.Component {
 
     render() {
         var style = {
-            width: "100%",
+            width: "100%", 
             height: "100vh",
         };
         return <PlayerWhiteboard player={player} style={style}/>;
@@ -131,7 +131,7 @@ class App extends React.Component {
 
     public render(): React.ReactNode {
         const style = {
-            width: "100%",
+            width: "100%", 
             height: "100vh",
         };
         return <PlayerWhiteboard player={player} style={style}/>;
@@ -263,7 +263,7 @@ var replayRange = {
 };
 whiteWebSdk.isPlayable(replayRange).then(function(isPlayable) {
     // isPlayable === true 表示，这个时间段的录像已生成，可以播放
-
+    
 }).catch(fucntion(err) {
     // 获取失败
     console.error(err);

@@ -6,15 +6,15 @@ description: 移动视角、放缩视角
 
 Netless 互动白板允许你移动视角、放缩视角。也允许你禁止视角做操作。甚至可以自定义视角跟随。
 
-到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经加入并获取实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](/javascript/installation)[《实时房间](/javascript/realtime-room)》。
+到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经加入并获取实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](https://developer.netless.group/javascript/installation)[《实时房间](https://developer.netless.group/javascript/realtime-room)》。
 
 {% hint style="info" %}
-本章教程只会让你把视角操作的相关内容涉猎一遍。如果你想深入了解相关内容，可以在阅读完本章后参考[《视角与坐标》](/documents/client/view-and-coordinates)。
+本章教程只会让你把视角操作的相关内容涉猎一遍。如果你想深入了解相关内容，可以在阅读完本章后参考[《视角与坐标》](https://developer.netless.group/documents/client/view-and-coordinates)。
 {% endhint %}
 
 ## 主动操作视角
 
-视角操作基于互动白板的**世界坐标系**。Netless 互动白板的场景是一个无边无际的空间，以中心，向四方无限延伸。中心原点的坐标为 \(0, 0\)，横轴为 x 轴，方向向右，纵轴为 y 轴，方向向下。这个坐标系是绝对的，不随视角的变化而变化。如果你对此想了解更多，可以阅读[《视角与坐标》](/documents/client/view-and-coordinates)。
+视角操作基于互动白板的**世界坐标系**。Netless 互动白板的场景是一个无边无际的空间，以中心，向四方无限延伸。中心原点的坐标为 \(0, 0\)，横轴为 x 轴，方向向右，纵轴为 y 轴，方向向下。这个坐标系是绝对的，不随视角的变化而变化。如果你对此想了解更多，可以阅读[《视角与坐标》](https://developer.netless.group/documents/client/view-and-coordinates)。
 
 在实践中，我们可以用如下方法，把屏幕坐标系转化成世界坐标系。屏幕坐标系的原点在白板中心，放缩比例和占位符 `<div>` 的坐标系一致（该坐标系会受到 transform 影响）。
 

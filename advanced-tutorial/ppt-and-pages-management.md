@@ -6,10 +6,10 @@ description: 插页、翻页、上传 PPT
 
 页面，在 Netless 互动白板中称之为场景。场景既可以用于实现多页应用，如模拟插页、换页、切页等操作，也可以作为 PPT 的承载基础。一个 PPT 可以包含多页，每一页都会对应 Netless 互动白板中的一个场景。我们可以通过切换场景来实现 PPT 切页功能。
 
-到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经获取实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](/javascript/advanced-tutorial/installation)[《实时房间》](/javascript/advanced-tutorial/realtime-room)。
+到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经获取实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](https://developer.netless.group/javascript/advanced-tutorial/installation)[《实时房间》](https://developer.netless.group/javascript/advanced-tutorial/realtime-room)。
 
 {% hint style="info" %}
-本章教程只会让你把 PPT 和场景管理的相关内容涉猎一遍。如果想深入了解相关内容，可以在阅读完本章后参考[《PPT》](/documents/client/ppt)与[《多页白板与场景管理》](/documents/client/multi-page-application-and-scene-management)。
+本章教程只会让你把 PPT 和场景管理的相关内容涉猎一遍。如果想深入了解相关内容，可以在阅读完本章后参考[《PPT》](https://developer.netless.group/documents/client/ppt)与[《多页白板与场景管理》](https://developer.netless.group/documents/client/multi-page-application-and-scene-management)。
 {% endhint %}
 
 ## 场景的标示法则
@@ -32,7 +32,7 @@ Netless 互动白板有「场景」和「场景组」两个概念。场景组既
 
 利用场景标示法则，可以更好地组织场景，以应对更复杂的业务场景。例如，可以在同一个房间组织多个 PPT，并混杂多张草稿页。
 
-这套规则也许有点复杂，但如果理解并掌握了它，就能更好地应对复杂场景需求。如果你还想了解更多，可以阅读[《多页白板与场景管理》](/documents/client/multi-page-application-and-scene-management)。
+这套规则也许有点复杂，但如果理解并掌握了它，就能更好地应对复杂场景需求。如果你还想了解更多，可以阅读[《多页白板与场景管理》](https://developer.netless.group/documents/client/multi-page-application-and-scene-management)。
 
 ## 插页、切页
 
@@ -107,7 +107,7 @@ scene index: 0
 之后，创建一组场景，这一组场景按顺序以特定的 URL 作为背景图片，最后把这组场景插入到房间中。
 
 {% hint style="success" %}
-Netless 提供 PPT 转化服务。既可以将 PPT 页转化成静态图片，也可以转化成保留动画的可互动 HTML 页面。更多信息可参考[《PPT》](/documents/client/ppt)。
+Netless 提供 PPT 转化服务。既可以将 PPT 页转化成静态图片，也可以转化成保留动画的可互动 HTML 页面。更多信息可参考[《PPT》](https://developer.netless.group/documents/client/ppt)。
 {% endhint %}
 
 现在，不管怎么做的，总之我假设你得到了一组 PPT 分页转化而来的图片 URL 列表。你可以通过如下代码插入到房间中。

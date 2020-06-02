@@ -4,7 +4,7 @@
 
 > 1. 自定义事件，作为一个行为，在白板中不会产生`副作用`。
 > 2. 监听自定义事件，只能接收到监听之后的自定义事件消息。所以，后期加入房间的用户，无法接收到注册前的信息；回放时，如果跳过自定义事件信息的发送时间，也无法接收。
-> 3. 如果要保留影响结果，建议阅读[白板操作-自定义 GlobalState](/documents/client/realtime-room-state-management)了解如何添加自定义状态。
+> 3. 如果要保留影响结果，建议阅读[白板操作-自定义 GlobalState](https://developer.netless.group/documents/client/realtime-room-state-management)了解如何添加自定义状态。
 
 ## 发送自定义事件
 
