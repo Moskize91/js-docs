@@ -60,7 +60,7 @@ window.fetch(url, requestInit).then(function(response) {
 其中 `uuid`是最重要的字段。
 
 {% hint style="warning" %}
-建议在业务服务器上执行创建房间的操作，不要在前端或客户端上做。本章为了演示完整流程，用了前端的 window.fetch 方法调用 Netless 服务端 API。请勿在正式 Web 应用中消效仿此行为。
+建议在业务服务器上执行创建房间的操作，不要在前端或客户端上做。本章为了演示完整流程，用了前端的 window.fetch 方法调用 Netless 服务端 API。请勿在正式 Web 应用中效仿此行为。
 {% endhint %}
 
 {% hint style="warning" %}

@@ -1,16 +1,16 @@
 ---
-description: 录制、回放、晦朔自定义事件
+description: 录制、回放、回朔自定义行为
 ---
 
 # 回放
 
-Netless 以记录信令的方式实现录制、回放功能。相较于传统的录屏模式，仅需少量带宽，回放时便输出高清的结果。只要调整好参数，Netless 云端会自动录制实时房间的内容。
+Netless 以记录信令的方式实现录制、回放功能。相较于传统的录屏模式，仅需少量带宽，回放时便输出高清的结果。只要调整好参数，Netless 云端就会自动录制实时房间的内容。
 
-到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目。如果没有，你可能跳过了之前的章节，强烈建议先阅读[《安装》](https://developer.netless.group/javascript/installation)。
+到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目。如果没有，你可能跳过了之前的章节，强烈建议先阅读[《安装》](https://developer.netless.group/javascript/advanced-tutorial/installation)。
 
 ## 开启云端录制
 
-在创建房间之处，可以开启云端录制功能。在调用 Netless 服务端 API 创建房间时，加入参数 `isRecord: true` 即可开启。
+在创建房间之初，可以开启云端录制功能。通过在调用 Netless 服务端 API 创建房间时，加入参数 `isRecord: true` 即可开启。
 
 ```javascript
 var url = "https://shunt-api.netless.link/v5/rooms";
@@ -39,14 +39,14 @@ window.fetch(url, requestInit).then(function(response) {
 ```
 
 {% hint style="warning" %}
-建议在业务服务器上执行创建房间的操作，不要在前端或客户端上做。本章为了演示完整流程，用了前端的 window.fetch 方法调用 Netless 服务端 API。请勿在正式 Web 应用中消效仿此行为。
+建议在业务服务器上执行创建房间的操作，不要在前端或客户端上做。本章为了演示完整流程，用了前端的 window.fetch 方法调用 Netless 服务端 API。请勿在正式 Web 应用中效仿此行为。
 {% endhint %}
 
 {% hint style="warning" %}
 SDK Token 是公司和团队的重要资产，原则上只能在业务服务器中产生并使用。**绝对不能写死在前端！绝对不要通过网络传输给前端！**否则**，**别人可以通过反编译、抓包等途径来窃取 SDK Token。SDK Token 一旦泄漏，会带来严重的安全问题。
 {% endhint %}
 
-开启之后，该房间的一切实时互动行为都会在 Netless 云端被自动录制下来。更多关于创建房间 API 的内容，请参考[《房间 ｜ 服务端》](https://developer.netless.group/server/api-reference/room#chuang-jian-fang-jian)。
+开启之后，该房间的一切实时互动行为都会被 Netless 云端自动录制下来。更多关于创建房间 API 的内容，请参考[《房间 ｜ 服务端》](https://developer.netless.group/server/api-reference/room#chuang-jian-fang-jian)。
 
 ## 在前端回放已录制好的内容
 
@@ -68,7 +68,7 @@ whiteWebSdk.replayRoom(replayRoomParams).then(function (player) {
 });
 ```
 
-注意这里有 `beginTimestamp` 和 `duration` 两个参数。它们用于限定回放的范围。举个例子，加入你做了一个在线课堂，课程在上午 08:00 开始，08:45 结束。那么，你可以将这两个参数设为。
+注意这里有 `beginTimestamp` 和 `duration` 两个参数。它们用于限定回放的范围。举个例子，假设你的产品是在线课堂，课程在上午 08:00 开始，08:45 结束。那么，你可以将这两个参数设为。
 
 ```javascript
 whiteWebSdk.replayRoom({
@@ -79,7 +79,7 @@ whiteWebSdk.replayRoom({
 });
 ```
 
-这样，你就剔除了在 08:00 上课之前因为有人提前进场产生的内容和 08:45 下课后依然有人留场产生的内容。
+考虑到上课之前有人提前进场，下课后有人滞留，这些人都会产生互动行为，并被录制下来。限定范围会剔除 08:00 之前的内容和 08:45 之后的内容，让回放专注于课堂中的内容。
 
 之后，我们需要把播放器在网页上展示出来。在此之前，还需要在网页的 Dom 树中准备白板占位符。
 
@@ -101,7 +101,7 @@ player.play();
 
 ## 在 React 中展示白板回放内容
 
-如果你使用 `react` 来管理网页视图，则无需设置白板占位符 `<div>` 。在成功加入房间并拿到 `player` 对象之后，通过如下代码便可将互动白板展示出来。
+如果你使用 `react` 来管理网页视图，则无需设置白板占位符 `<div>` 。在拿到 `player` 对象之后，通过如下代码便可将白板回放页展示出来。
 
 {% tabs %}
 {% tab title="JavaScript" %}
@@ -116,7 +116,7 @@ class App extends React.Component {
             width: "100%", 
             height: "100vh",
         };
-        return <PlayerWhiteboard player={room} style={style}/>;
+        return <PlayerWhiteboard player={player} style={style}/>;
     }
 }
 ```
@@ -134,7 +134,7 @@ class App extends React.Component {
             width: "100%", 
             height: "100vh",
         };
-        return <PlayerWhiteboard player={room} style={style}/>;
+        return <PlayerWhiteboard player={player} style={style}/>;
     }
 }
 ```
@@ -150,14 +150,14 @@ Netless 互动白板为 React 项目提供了专门的 SDK：`white-react-sdk`�
 当白板的边界尺寸（width、height）发生变化后，你**必须**调用如下代码，以让 White SDK 重新调整样式。
 
 ```javascript
-room.refreshViewSize();
+player.refreshViewSize();
 ```
 
 一个典型场景是，用户会调整浏览器窗口大小，这会产生连锁反应，最终导致白板的尺寸发生改变。你可以监听窗口大小变化事件，及时调用该方法以保证白板样式始终能正确展示。
 
 ```javascript
 window.addEventListener("load", function() {
-    room.refreshViewSize();
+    player.refreshViewSize();
 });
 ```
 
@@ -224,11 +224,11 @@ player.stop();
 
 ## 视角跟随
 
-实时房间互动时，用户的视角变化信息也会被录制下来，在回放时会原样复现出来。因此，在回放时，用户可以看到白板视角在自动移动。
+实时房间互动时，用户的视角变化信息也会被录制下来，在回放时会原样复现出来。因此，在回放时，观看者的视角会自动变化，以复现当时的情景。
 
 用户也可以通过设备操作主动操作视角（平移、放缩），这时，用户会夺走视角控制权，白板不再复现录制中的视角变化信息。
 
-如果不希望用户夺走视角控制权，可以通过如下代码禁止用户通过设备操作视角。
+如果不希望用户夺走视角控制权，可以通过如下代码禁止用户的设备操作。
 
 ```javascript
 player.disableCameraTransform = true;
@@ -270,7 +270,7 @@ whiteWebSdk.isPlayable(replayRange).then(function(isPlayable) {
 });
 ```
 
-## 复现自定义行为
+## 回朔自定义行为
 
 实时房间中的 Global State 的变化，以及自定事件，都会被录制下来。你可以在回放时监听这些变化和事件，如果能妥善处理，这些由你自己实现的自定义行为也可以在回放时复现。
 
@@ -293,7 +293,7 @@ whiteWebSdk.replayRoom(replayRoomParams, {
 });
 ```
 
-通过如下代码可以监听自定义时间。
+通过如下代码可以监听自定义事件。
 
 ```javascript
 var event = "my-custom-event"; // 自定义事件名称
