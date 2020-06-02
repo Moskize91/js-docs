@@ -67,6 +67,8 @@ window.fetch(url, requestInit).then(function(response) {
 SDK Token 是公司和团队的重要资产，原则上只能在业务服务器中产生并使用。**绝对不能写死在前端！绝对不要通过网络传输给前端！**否则**，**别人可以通过反编译、抓包等途径来窃取 SDK Token。SDK Token 一旦泄漏，会带来严重的安全问题。
 {% endhint %}
 
+更多关于创建房间 API 的内容，请参考[《房间 ｜ 服务端》](https://developer.netless.group/server/api-reference/room#chuang-jian-fang-jian)。
+
 ## 房间的标示与鉴权
 
 在加入房间之前，要先准备房间的 UUID 和 Room Token。其中，UUID 是用来唯一标示房间的字符串。而 Room Token 用于加入房间时的健全。
@@ -106,6 +108,8 @@ Room Token 只能访问指定房间，权限比 SDK Token 弱，可以根据业�
 
 当前端需要 Room Token 时，应该先调用业务服务器的 API，再由业务服务器调用 Netless 服务端 API 签出 Room Token。
 {% endhint %}
+
+更多关于创建 Room Token 的 API 的内容，请参考[《房间 ｜ 服务端》](https://developer.netless.group/server/api-reference/generate-token#sheng-cheng-room-token)。
 
 ## 加入房间
 
