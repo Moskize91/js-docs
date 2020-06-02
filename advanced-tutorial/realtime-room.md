@@ -227,6 +227,22 @@ class App extends React.Component {
 Netless 互动白板为 React 项目提供了专门的 SDK：`white-react-sdk`。该 SDK 是可完全代替 `white-web-sdk` 的超集。
 {% endhint %}
 
+## 适配占位符尺寸变化
+
+当白板的边界尺寸（width、height）发生变化后，你**必须**调用如下代码，以让 White SDK 重新调整样式。
+
+```javascript
+room.refreshViewSize();
+```
+
+一个典型场景是，用户会调整浏览器窗口大小，这会产生连锁反应，最终导致白板的尺寸发生改变。你可以监听窗口大小变化事件，及时调用该方法以保证白板样式始终能正确展示。
+
+```javascript
+window.addEventListener("load", function() {
+    room.refreshViewSize();
+});
+```
+
 ## 离开房间
 
 如果不再使用白板了，就应该离开房间。Netless 互动白板**不会**自动离开房间。出于如下理由，我们不应该遗漏「离开房间」操作。
