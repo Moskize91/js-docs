@@ -6,7 +6,7 @@ description: 移动视角、放缩视角
 
 Netless 互动白板允许移动视角、放缩视角，也允许禁止视角做操作，甚至可以自定义视角跟随。
 
-到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经获取到实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](https://developer.netless.group/javascript/installation)[《实时房间](https://developer.netless.group/javascript/realtime-room)》。
+到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经获取到实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](https://developer.netless.group/javascript/advanced-tutorial/installation)[《实时房间》](https://developer.netless.group/javascript/advanced-tutorial/realtime-room)。
 
 {% hint style="info" %}
 本章教程只会让你把视角操作的相关内容涉猎一遍。如果想深入了解相关内容，可以在阅读完本章后参考[《视角与坐标》](https://developer.netless.group/documents/client/view-and-coordinates)。

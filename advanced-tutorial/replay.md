@@ -336,5 +336,3 @@ whiteWebSdk.replayRoom(replayRoomParams, {
 });
 ```
 
-
-

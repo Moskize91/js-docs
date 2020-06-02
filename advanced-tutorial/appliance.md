@@ -4,7 +4,7 @@ description: 铅笔、橡皮、直线工具、矩形工具、插入图片
 
 # 教具
 
-阅读本章，你将学会如何使用教具，切换教具，管理教具。到此章为止，我们假设你已经成功将 Netless 互动白板 SDK 安装并引入了项目，并且已经了解如何获取实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](https://developer.netless.group/javascript/installation)[《实时房间](https://developer.netless.group/javascript/realtime-room)》。
+阅读本章，你将学会如何使用教具，切换教具，管理教具。到此章为止，我们假设你已经成功将 Netless 互动白板 SDK 安装并引入了项目，并且已经了解如何获取实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](https://developer.netless.group/javascript/advanced-tutorial/installation)[《实时房间》](https://developer.netless.group/javascript/advanced-tutorial/realtime-room)。
 
 ## 教具列表
 

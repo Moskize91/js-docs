@@ -6,7 +6,7 @@ description: 插页、翻页、上传 PPT
 
 页面，在 Netless 互动白板中称之为场景。场景既可以用于实现多页应用，如模拟插页、换页、切页等操作，也可以作为 PPT 的承载基础。一个 PPT 可以包含多页，每一页都会对应 Netless 互动白板中的一个场景。我们可以通过切换场景来实现 PPT 切页功能。
 
-到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经获取实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](https://developer.netless.group/javascript/installation)[《实时房间](https://developer.netless.group/javascript/realtime-room)》。
+到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经获取实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](https://developer.netless.group/javascript/advanced-tutorial/installation)[《实时房间》](https://developer.netless.group/javascript/advanced-tutorial/realtime-room)。
 
 {% hint style="info" %}
 本章教程只会让你把 PPT 和场景管理的相关内容涉猎一遍。如果想深入了解相关内容，可以在阅读完本章后参考[《PPT》](https://developer.netless.group/documents/client/ppt)与[《多页白板与场景管理》](https://developer.netless.group/documents/client/multi-page-application-and-scene-management)。
