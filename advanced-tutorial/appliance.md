@@ -4,7 +4,7 @@ description: 铅笔、橡皮、直线工具、矩形工具、插入图片
 
 # 教具
 
-阅读本章，你将学会如何使用教具，切换教具，管理教具。到此章为止，我们假设你已经成功将 Netless 互动白板 SDK 安装并引入了项目，并且已经了解如何获取实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](https://developer.netless.group/javascript/advanced-tutorial/installation)[《实时房间》](https://developer.netless.group/javascript/advanced-tutorial/realtime-room)。
+阅读本章，你将学会如何使用教具，切换教具，管理教具。到此章为止，我们假设你已经成功将 Netless 互动白板 SDK 安装并引入了项目，并且已经了解如何获取实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](/javascript/advanced-tutorial/installation)[《实时房间》](/javascript/advanced-tutorial/realtime-room)。
 
 ## 教具列表
 
@@ -50,7 +50,7 @@ room.setMemberState({
 });
 ```
 
-如果想了解更多`memberState` 的事，可以阅读[《房间业务状态管理》](https://developer.netless.group/documents/client/room-business-state-management)。
+如果想了解更多`memberState` 的事，可以阅读[《房间业务状态管理》](/documents/client/room-business-state-management)。
 
 ## 插入图片
 
@@ -119,7 +119,7 @@ class Business {
 
 ### 确定图片的坐标和尺寸
 
-`centerX` 与 `centerY` 标示图片中心点的坐标。`width` 与 `height` 标示图片的宽高。以上四个值，描述的是图片的**世界坐标**，标示在白板场景坐标系中的一个矩形。由于 Netless 互动白板支持视角移动与放缩，我们需要一个不随视角变化而变化的坐标系来描述图片的空间位置，这就是世界坐标系。如果你对此想了解更多，可以阅读[《视角与坐标》](https://developer.netless.group/documents/client/view-and-coordinates)。
+`centerX` 与 `centerY` 标示图片中心点的坐标。`width` 与 `height` 标示图片的宽高。以上四个值，描述的是图片的**世界坐标**，标示在白板场景坐标系中的一个矩形。由于 Netless 互动白板支持视角移动与放缩，我们需要一个不随视角变化而变化的坐标系来描述图片的空间位置，这就是世界坐标系。如果你对此想了解更多，可以阅读[《视角与坐标》](/documents/client/view-and-coordinates)。
 
 通过如下代码，可以把图片插入到 Web 页面的中央。这段代码做了一些坐标转换的操作，以确保不管视角如何移动，都能找到当前视角下屏幕中央对准的世界坐标。
 
@@ -133,7 +133,7 @@ var screenCenterY = boardSpaceholder.clientHeight / 2;
 
 // 将屏幕坐标转化成世界坐标
 var pointInWorld = room.convertToPointInWorld({
-    x: screenCenterX, 
+    x: screenCenterX,
     y: screenCenterY,
 });
 

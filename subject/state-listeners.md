@@ -97,7 +97,7 @@ var broadcastState = room.state.broadcastState;
 
 当房间状态（用户加入退出，白板页面（场景），用户教具变化，主播，全局状态）发生改变时，sdk 会主动回调在`joinRoom`时，`callbacks`参数中的`onRoomStateChanged`方法。
 
-> 更多回调参数使用，请阅读[初始化参数-房间参数](https://developer.netless.group/javascript/initialization/room-parameters)。
+> 更多回调参数使用，请阅读[初始化参数-房间参数](/javascript/initialization/room-parameters)。
 
 ```typescript
 //... 初始化 whiteWebSdk，获取房间鉴权信息
@@ -159,5 +159,5 @@ whiteWebSdk.replayRoom({
 })
 ```
 
-> 更多回调参数使用，请阅读[初始化参数-回放参数](https://developer.netless.group/javascript/initialization/replay-parameters)
+> 更多回调参数使用，请阅读[初始化参数-回放参数](/javascript/initialization/replay-parameters)
 
