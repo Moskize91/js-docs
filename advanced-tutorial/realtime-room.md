@@ -7,7 +7,7 @@ description: 创建、加入实时互动白板
 每一个白板都属于一个房间。白板上写写画画的轨迹可以被房间里所有人看到。本章将涉及，如何创建时互动的房间，如何管理房间的状态。
 
 {% hint style="info" %}
-本章教程只会把房间状态管理的相关内容涉猎一遍。如果想深入了解相关内容，可以在阅读完本章后，进一步阅读[《实时房间状态管理》](/documents/client/realtime-room-state-management)。
+本章教程只会把房间状态管理的相关内容涉猎一遍。如果想深入了解相关内容，可以在阅读完本章后，进一步阅读[《实时房间状态管理》](https://developer.netless.group/documents/client/realtime-room-state-management)。
 {% endhint %}
 
 ## 创建房间
@@ -16,7 +16,7 @@ Netless 互动白板的一切基于房间。创建了房间的那一刻，才是
 
 App Idnetifier 表明了房间归哪个应用所有。应用和企业账号关联。如此一来，房间产生的费用才可以关联到企业账号。
 
-SDK Token 由应用签出。带上它，Netless 服务才确定创建房间的操作得到了授权。你可以阅读[《应用与权限》](/documents/guan-li-kong-zhi-tai/applications-and-authority)来了了解如何获取 App Identifier 和 SDK Token。
+SDK Token 由应用签出。带上它，Netless 服务才确定创建房间的操作得到了授权。你可以阅读[《应用与权限》](https://developer.netless.group/documents/guan-li-kong-zhi-tai/applications-and-authority)来了了解如何获取 App Identifier 和 SDK Token。
 
 准备完毕后，通过如下代码，调用 Netless 服务的 API 来创建房间。
 
@@ -67,7 +67,7 @@ window.fetch(url, requestInit).then(function(response) {
 SDK Token 是公司和团队的重要资产，原则上只能在业务服务器中产生并使用。**绝对不能写死在前端！绝对不要通过网络传输给前端！**否则**，**别人可以通过反编译、抓包等途径来窃取 SDK Token。SDK Token 一旦泄漏，会带来严重的安全问题。
 {% endhint %}
 
-更多关于创建房间 API 的内容，请参考[《房间 ｜ 服务端》](/server/api-reference/room#chuang-jian-fang-jian)。
+更多关于创建房间 API 的内容，请参考[《房间 ｜ 服务端》](https://developer.netless.group/server/api-reference/room#chuang-jian-fang-jian)。
 
 ## 房间的标示与鉴权
 
@@ -109,7 +109,7 @@ Room Token 只能访问指定房间，权限比 SDK Token 弱，可以根据业�
 当前端需要 Room Token 时，应该先调用业务服务器的 API，再由业务服务器调用 Netless 服务端 API 签出 Room Token。
 {% endhint %}
 
-更多关于创建 Room Token 的 API 的内容，请参考[《房间 ｜ 服务端》](/server/api-reference/generate-token#sheng-cheng-room-token)。
+更多关于创建 Room Token 的 API 的内容，请参考[《房间 ｜ 服务端》](https://developer.netless.group/server/api-reference/generate-token#sheng-cheng-room-token)。
 
 ## 加入房间
 
@@ -195,7 +195,7 @@ class App extends React.Component {
 
     render() {
         var style = {
-            width: "100%",
+            width: "100%", 
             height: "100vh",
         };
         return <RoomWhiteboard room={room} style={style}/>;
@@ -213,7 +213,7 @@ class App extends React.Component {
 
     public render(): React.ReactNode {
         const style = {
-            width: "100%",
+            width: "100%", 
             height: "100vh",
         };
         return <RoomWhiteboard room={room} style={style}/>;

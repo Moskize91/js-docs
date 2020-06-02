@@ -7,7 +7,7 @@ description: 创建、加入一个可以实时互动的白板
 每一个白板都属于一个房间。某一个人在白板上写写画画的轨迹可以被同一个房间里的其他人看到。本章教你如何创建一个可以实时互动的房间，并管理房间的状态。
 
 {% hint style="info" %}
-本章教程只会让你把房间状态管理的相关内容涉猎一遍。如果你想深入了解相关内容，可以在阅读完本章后参考[《实时房间状态管理》](/documents/client/realtime-room-state-management)。
+本章教程只会让你把房间状态管理的相关内容涉猎一遍。如果你想深入了解相关内容，可以在阅读完本章后参考[《实时房间状态管理》](https://developer.netless.group/documents/client/realtime-room-state-management)。
 {% endhint %}
 
 ## 创建房间
@@ -16,7 +16,7 @@ Netless 互动白板的一切都基于房间，只有创建了房间，你才能
 
 此外，你还需在应用下签出 SDK Token，以标示你的企业账号的授权。我们的服务端会通过 SDK Token 确认操作是合法的。
 
-你可以阅读[《应用与权限》](/documents/guan-li-kong-zhi-tai/applications-and-authority)来了了解如何得到 App Identifier 和 SDK Token。然后，通过如下代码，来调用我们的服务端 API 以创建房间。
+你可以阅读[《应用与权限》](https://developer.netless.group/documents/guan-li-kong-zhi-tai/applications-and-authority)来了了解如何得到 App Identifier 和 SDK Token。然后，通过如下代码，来调用我们的服务端 API 以创建房间。
 
 ```javascript
 var url = "https://shunt-api.netless.link/v5/rooms";
@@ -34,7 +34,7 @@ window.fetch(url, requestInit).then(function(response) {
 }).then(function(roomJSON) {
     // 创建房间成功，获取描述房间信息的 roomJSON
     console.log(roomJSON);
-
+    
 }).catch(function(err) {
     // 失败了，打印出 Error 以便分析为何失败
     console.error(err);
@@ -182,10 +182,10 @@ import React from "react";
 import { RoomWhiteboard } from "white-react-sdk";
 
 class App extends React.Component {
-
+    
     render() {
         var style = {
-            width: "100%",
+            width: "100%", 
             height: "100vh",
         };
         return <RoomWhiteboard room={room} style={style}/>;
@@ -200,10 +200,10 @@ import * as React from "react";
 import { RoomWhiteboard } from "white-react-sdk";
 
 class App extends React.Component {
-
+    
     public render(): React.ReactNode {
         const style = {
-            width: "100%",
+            width: "100%", 
             height: "100vh",
         };
         return <RoomWhiteboard room={room} style={style}/>;
@@ -289,7 +289,7 @@ whiteWebSDK.joinRoom(joinRoomParams, {
     onDisconnectWithError: function(err) {
         // 房间因为错误，和服务端断开连接
     },
-
+    
     onKickedWithReason: function(err) {
         // 用户被踢出房间
     },
