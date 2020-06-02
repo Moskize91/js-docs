@@ -4,7 +4,7 @@
 
 ### TypeScript 方法签名
 
-```TypeScript
+```typescript
 //WhiteWebSdk.d.ts
 constructor(params: WhiteWebSdkConfiguration = {})
 ```
@@ -24,7 +24,7 @@ var whiteWebSdk = new WhiteWebSdk({
 
 ### TypeScript 签名
 
-```Typescript
+```typescript
 // WhiteWebSdk.d.ts
 export type WhiteWebSdkConfiguration = {
     readonly deviceType?: DeviceType;
@@ -41,7 +41,7 @@ export type WhiteWebSdkConfiguration = {
 };
 ```
 
->所有参数均为可选，部分已有默认值。加粗为常用配置项目
+> 所有参数均为可选，部分已有默认值。加粗为常用配置项目
 
 ### **urlInterrupter**: 图片替换
 
@@ -51,12 +51,11 @@ export type WhiteWebSdkConfiguration = {
 urlInterrupter?: (url: string) => string;
 ```
 
-```js
+```javascript
 传入一个插入图片/ppt 时的原始地址，返回一个任意修改后的地址
 ```
 
->在插入图片和创建新场景背景图时，sdk 会调用该 API，此时可以修改最终显示的url。
->如果没有需要，请不要传入该参数。目前在绘制时，会频繁调用该 API。
+> 在插入图片和创建新场景背景图时，sdk 会调用该 API，此时可以修改最终显示的url。 如果没有需要，请不要传入该参数。目前在绘制时，会频繁调用该 API。
 
 ### **deviceType**: 设备类型
 
@@ -70,7 +69,7 @@ export enum DeviceType {
 }
 ```
 
-```js
+```javascript
 值：`desktop`|`touch`|`surface`。
 
 根据传入值，依次接受`mouse`事件，`touch`事件；传入`surface`时，则会同时接收`touch`,`mouse`事件。
@@ -80,7 +79,7 @@ export enum DeviceType {
 
 ### **renderEngine**：渲染模式
 
-默认值是 ``RenderEngine.SVG``。
+默认值是 `RenderEngine.SVG`。
 
 TypeScript 签名：
 
@@ -95,7 +94,7 @@ export enum RenderEngine {
 
 ### fonts: ppt 映射字体
 
-```js
+```javascript
 类型结构：`{key: url}`
 
 动态 ppt 需要的自定义字体映射，`key`为动态 ppt 所用的字体名称，`url`为字典所在网络地址。
@@ -103,7 +102,7 @@ export enum RenderEngine {
 
 ### **handToolKey**: 抓手工具快捷键
 
-```js
+```javascript
 类型：`string`
 设置后，用户同时按住该快捷键与鼠标，即可移动整个白板。
 可以输入`KeyboardEvent`键盘事件可以出发的`key`属性。推荐传入空格键(`" "`)
@@ -111,18 +110,18 @@ export enum RenderEngine {
 
 ### preloadDynamicPPT: 动态 ppt 预加载
 
-```js
+```javascript
 默认`false`，类型：`boolean`
 是否预先加载动态 PPT 中的图片，选择 true，会在第一页时，就加载所有图片，从而保证翻页时，能够立即显示图片。
 ```
 
->预加载进度回调，可以在初始化 room player 时，进行配置。可以查看[房间参数](./room.md)与[回放参数](./player.md)中 onPPTLoadProgress 配置。
+> 预加载进度回调，可以在初始化 room player 时，进行配置。可以查看[房间参数](https://developer.netless.group/javascript/initialization/room-parameters)与[回放参数](https://developer.netless.group/javascript/initialization/replay-parameters)中 onPPTLoadProgress 配置。
 
 ### loggerOptions: 日志上报配置
 
 默认值：
 
-```js
+```javascript
 {
     //是否禁用上传，默认上传
     disableReportLog: false,
@@ -134,7 +133,8 @@ export enum RenderEngine {
 ```
 
 允许修改的值:
-```Typescript
+
+```typescript
 {
     disableReportLog?: boolean,
     reportLevelMask?: "debug" | "info" | "warn" | "error",
@@ -144,7 +144,7 @@ export enum RenderEngine {
 
 ### onlyCallbackRemoteStateModify
 
-```js
+```javascript
 默认`true`,类型：`boolean`，只对`room`有效。
 `room`本地修改的内容，是否在`onRoomStateChange`中回调。
 默认本地主动修改的状态，不会在`onRoomStateChange`回调中出现。
@@ -152,19 +152,18 @@ export enum RenderEngine {
 
 ### zoomMaxScale:放大上限
 
-用户可以放到的最大比例，默认不限制。
-开发者仍然可以使用代码进行放大。
+用户可以放到的最大比例，默认不限制。 开发者仍然可以使用代码进行放大。
 
->2.3.0 支持更高级 API，在初始化`room`，以及`player`时配置。
+> 2.3.0 支持更高级 API，在初始化`room`，以及`player`时配置。
 
 ### zoomMinScale:缩小下限
 
-用户可以缩小的最小比例，默认不限制。
-开发者仍然可以使用代码进行缩小。
+用户可以缩小的最小比例，默认不限制。 开发者仍然可以使用代码进行缩小。
 
->2.3.0 支持更高级 API，在初始化`room`，以及`player`时配置。
+> 2.3.0 支持更高级 API，在初始化`room`，以及`player`时配置。
 
 ## 推荐阅读
 
-1. [房间参数](./room.md)
-1. [回放参数](./player.md)
+1. [房间参数](https://developer.netless.group/javascript/initialization/room-parameters)
+2. [回放参数](https://developer.netless.group/javascript/initialization/replay-parameters)
+

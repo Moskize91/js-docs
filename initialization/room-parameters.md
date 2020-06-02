@@ -15,7 +15,7 @@ public joinRoom(params: JoinRoomParams, callbacks: RoomCallbacks = {}): Promise<
 
 ### 示例代码
 
-```js
+```javascript
 whiteWebSdk.joinRoom({
     uuid: json.msg.room.uuid,
     roomToken: json.msg.roomToken,
@@ -56,30 +56,30 @@ export type JoinRoomParams = {
 };
 ```
 
->除`uuid`,`roomToken`外，其他均为可选参数。右侧目录中加粗字段，为常用设置。
+> 除`uuid`,`roomToken`外，其他均为可选参数。右侧目录中加粗字段，为常用设置。
 
-### **uuid**(必须): string
+### **uuid**\(必须\): string
 
-```js
+```javascript
 房间表示，同一个房间的人，可以进行互动。
 ```
 
-### **roomToken**(必须): string
+### **roomToken**\(必须\): string
 
-```js
+```javascript
 房间鉴权信息。
 ```
 
 ### **userPayload**: 用户信息
 
-```
+```text
 可以为任意内容，会在 room.state.roomMembers 中体现。
 SDK 会将其作为用户的信息，完整传递，不作处理。
 ```
 
 ### **isWritable**: 只读模式 / 可写模式
 
-```
+```text
 是否以可写模式进入房间（否则为只读模式）。
 可写模式进入房间后，可以急性：操作教具、修改房间相关状态等一切将自己的信息同步给房间其他人的操作。
 只读模式进入房间后，仅仅只能接收其他人同步的信息，不能操作教具、修改房间状态。
@@ -123,7 +123,7 @@ export type CursorDescription = {
 };
 ```
 
->该参数配合`userPayload`可以显示用户鼠标所在位置。
+> 该参数配合`userPayload`可以显示用户鼠标所在位置。
 
 你可以使用如下代码自定义鼠标光标。
 
@@ -147,7 +147,7 @@ export type CursorDescription = {
 var roomMembers = [];
 var cursorAdapter = {
   createCursor: function(memberId) {
-    	 return {x: 16, y: 16, width: 32, height: 32};
+         return {x: 16, y: 16, width: 32, height: 32};
   },
   onAddedCursor: function(cursor) {
     for (var i = 0; i < roomMembers.length; i ++) {
@@ -195,26 +195,26 @@ whiteWebSdk.joinRoom({
 
 ### cameraBound
 
-```js
+```javascript
 缩放范围限制，可以同时限制最大最小缩放比例，以及移动等范围，并且与白板页面中背景图相关联。
 ```
 
 ### disableBezier: 贝塞尔优化开关
 
-```js
+```javascript
 默认`false`，类型:`boolean`；默认打开贝塞尔优化。
 ```
 
-### **disableDeviceInputs**(默认`false`): 禁用教具
+### **disableDeviceInputs**\(默认`false`\): 禁用教具
 
-```js
+```javascript
 默认`false`，类型:`boolean`；默认启用教具。
 可以通过`room.disableDeviceInputs`进行获取，修改。
 ```
 
 ### **disableOperations**: 禁止操作
 
-```js
+```javascript
 默认`false`，类型:`boolean`；默认允许操作。
 禁止用户所有操作，包括教具操作，以及手势缩放，移动。
 可以通过`room.disableOperations`进行获取，修改。
@@ -222,7 +222,7 @@ whiteWebSdk.joinRoom({
 
 ### **disableEraseImage**: 禁止擦除图片
 
-```js
+```javascript
 是否禁止橡皮擦删除所有图片。默认`false`，即允许橡皮擦删除图片（无法擦除背景图）。
 可以通过`room.disableEraseImage`进行获取，修改。
 ```
@@ -245,14 +245,13 @@ export type RoomCallbacks = {
 };
 ```
 
->`callbacks`本身为可选参数，其所有回调方法，也是可选。只有出现对应事件时，才会回调对应的方法。
-
->右侧目录中加粗字段，为推荐实现。
+> `callbacks`本身为可选参数，其所有回调方法，也是可选。只有出现对应事件时，才会回调对应的方法。
+>
+> 右侧目录中加粗字段，为推荐实现。
 
 ### **onPhaseChanged**
 
 ```typescript
-
 export enum RoomPhase {
     //正在连接
     Connecting = "connecting",
@@ -273,67 +272,61 @@ export enum RoomPhase {
 
 ### **onRoomStateChanged**
 
-```js
+```javascript
 房间状态发生改变时，会回调该 API。
 该回调返回的`RoomState`只包含发生变化的房间状态字段。
 ```
 
->请阅读[状态监听](../features/state.md)文档，了解更多内容。
+> 请阅读[状态监听](https://github.com/netless-io/js-docs/tree/1b5de010c91e0bbe08e07aba2c792b50013c7ee2/features/state.md)文档，了解更多内容。
 
 ### onDisconnectWithError
 
-```js
+```javascript
 由于错误，导致中断连接
 ```
 
 ### onKickedWithReason
 
-```js
+```javascript
 被服务器主动踢房间
 ```
 
 ### willInterceptKeyboardEvent
 
-```js
+```javascript
 鼠标事件回调。
 是否拦截键盘输入事件，返回`true`表示拦截键盘输入事件，sdk 将不做处理。
 ```
 
 ### onKeyDown
 
-```js
+```javascript
 键盘按下事件回调
 ```
 
 ### onKeyUp
 
-```js
+```javascript
 键盘抬起事件回调
 ```
 
 ### **onHandToolActive**
 
-```js
+```javascript
 抓手工具激活/取消回调
 ```
 
 ### **onPPTLoadProgress**
 
 * TypeScript 签名
-```typescript
-(uuid: string, progress: number) => void;
-```
 
-```js
+  ```typescript
+  (uuid: string, progress: number) => void;
+  ```
+
+```javascript
 ppt 预加载缓存回调，uuid 为 ppt 转换时的 taskId，progress 为 0~1 之间的两位小数。
 ```
 
->只有在初始化 SDK 时，`preloadDynamicPPT`，设置为 true 时，该回调才有用。
+> 只有在初始化 SDK 时，`preloadDynamicPPT`，设置为 true 时，该回调才有用。
 
-## 推荐阅读
-
-1. [教具操作](../features/tools.md)
-1. [视角操作](../features/view.md)
-1. [页面管理](../features/scenes.md)
-1. [状态监听](../features/state.md)
-1. [白板操作](../features/operation.md)

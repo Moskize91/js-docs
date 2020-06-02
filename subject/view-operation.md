@@ -4,7 +4,7 @@
 
 `sdk`白板为无限内容，以初始点中心为中心，向四个方向无限延伸，并允许用户通过鼠标滚轮、手势等方式移动，缩放白板。为了定义用户正在观看的内容位置，`sdk`引入了「`白板内部坐标系`」这个概念。
 
->`白板内部坐标系`: **以白板初始化时，白板`div`中点为坐标原点，X 轴正方向向右，Y 轴正方向向下。**
+> `白板内部坐标系`: **以白板初始化时，白板`div`中点为坐标原点，X 轴正方向向右，Y 轴正方向向下。**
 
 ### 坐标转换API
 
@@ -21,15 +21,13 @@ public convertToPointInWorld(point: {x: number, y: number}): {x: number, y: numb
 
 由于所有用户都可以通过移动缩放等方式，观看白板不同位置的内容，所以为了满足`所有用户`观看同一个位置的需求，`sdk`添加了`主播模式`这个功能。
 
-使用`room.setViewMode("broadcaster")`将房间内的某个用户设为`主播`后，其他用户会自动进入`观众模式`。`sdk`会通过`缩放`，`移动``观众模式`的用户（以下简称`观众`）的白板，来保证观众能看到`主播`用户（以下简称主播）呈现的完整内容。
+使用`room.setViewMode("broadcaster")`将房间内的某个用户设为`主播`后，其他用户会自动进入`观众模式`。`sdk`会通过`缩放`，```移动``观众模式```的用户（以下简称`观众`）的白板，来保证观众能看到`主播`用户（以下简称主播）呈现的完整内容。
 
 ### 观众内容多余主播的情况
->根据观众屏幕比例与主播的不同，会造成观众看到的内容可能比主播更多。
 
-![perspective](/screenshot/perspective.jpeg)
+> 根据观众屏幕比例与主播的不同，会造成观众看到的内容可能比主播更多。
 
-主播模式中，主播所看到的内容，会全部同步到观众端。但是由于观众端屏幕比例可能与主播端不一致。为了完全显示主播端的内容，会进行缩放调整。
-类似于电影播放时，为了保持原始画面比例并保留原始内容，在某些显示器上，会进行比例缩放，会出现黑边。
+主播模式中，主播所看到的内容，会全部同步到观众端。但是由于观众端屏幕比例可能与主播端不一致。为了完全显示主播端的内容，会进行缩放调整。 类似于电影播放时，为了保持原始画面比例并保留原始内容，在某些显示器上，会进行比例缩放，会出现黑边。
 
 ## 视角模式 —— 主播，观众，自由（默认）
 
@@ -37,7 +35,7 @@ public convertToPointInWorld(point: {x: number, y: number}): {x: number, y: numb
 
 以下为`setViewMode`支持的参数：
 
-```Typescript
+```typescript
 export declare enum ViewMode {
     // 自由模式
     // 用户可以自由放缩、移动视角。
@@ -54,11 +52,11 @@ export declare enum ViewMode {
 };
 ```
 
->观众/跟随模式，进行任何操作，都会主动变更为`自由模式`，不再跟随主播。如果要保证禁止该行为，请通过[白板操作-禁止操作](./operation.md#disableOperations)API禁止用户所有操作。
+> 观众/跟随模式，进行任何操作，都会主动变更为`自由模式`，不再跟随主播。如果要保证禁止该行为，请通过[白板操作-禁止操作](https://developer.netless.group/javascript/subject/whiteboard-operation#jin-zhi-cao-zuo)API禁止用户所有操作。
 
 ### 示例代码
 
-```JavaScript
+```javascript
 //设置主播，其他用户自动切换为跟随模式（包括新用户）
 room.setViewMode("broadcaster");
 //自由，在跟随模式下的用户，一旦有任何操作，就会自动切换为该模式
@@ -67,7 +65,7 @@ room.setViewMode("freedom");
 room.setViewMode("follower");
 ```
 
-```JavaScript
+```javascript
 //禁止用户操作，再切换为跟随者
 room.disableOpertation = true;
 room.setViewMode("follower");
@@ -75,7 +73,7 @@ room.setViewMode("follower");
 
 ### 获取当前视角状态
 
-```Typescript
+```typescript
 // 该类型为房间状态属性之一，详情见[状态管理]文档
 export type BroadcastState = {
     // 当前用户视角模式
@@ -104,6 +102,7 @@ console.log(room.state.broadcastState);
 ## 更新白板宽高 —— 更新 div 数据
 
 不同用户的白板可能尺寸不同,在使用`bindHtmlElement`时，`room`与`player`会读取对应`div`的宽高，根据宽高，布局白板所需要展示的内容，并对准`坐标系原点`。
+
 ```typescript
 ///Displayer.d.ts
 //room player 通用
@@ -111,19 +110,17 @@ public bindHtmlElement(element: HTMLDivElement | null): void;
 ```
 
 当白板`div`的宽高发生改变时，由于`room`与`player`没有的宽高数据不再正确匹配`div`，会造成很多意想不到的行为。此时需要调用：
+
 ```typescript
 ///Displayer.d.ts
 public refreshViewSize(): void;
 ```
 
->因此，开发者需要在`div`大小发生变化时，调用`room.refreshViewSize()`方法，更新白板宽高数据。
->该情况一般发生在：
->1. 由于 window 发生改变，导致的白板`div`大小变化
->2. 由于业务需求，改变白板`div`大小
+> 因此，开发者需要在`div`大小发生变化时，调用`room.refreshViewSize()`方法，更新白板宽高数据。 该情况一般发生在： 1. 由于 window 发生改变，导致的白板`div`大小变化 2. 由于业务需求，改变白板`div`大小
 
 ## 调整视角中心 —— 坐标位置，缩放
 
->2.2.0新增 API，2.2.2 增加动画选项；回放 replay 与 实时房间 room 都支持该 API
+> 2.2.0新增 API，2.2.2 增加动画选项；回放 replay 与 实时房间 room 都支持该 API
 
 SDK 提供 `moveCamera` API，来调整视角，参数均为可选参数。SDK 会根据传入参数，调整视角中心与缩放比例。
 
@@ -176,9 +173,9 @@ public scalePptToFit(animationMode: AnimationMode = AnimationMode.Continuous): v
 
 ## 调整视野范围
 
->2.2.0新增 API，2.2.2 增加动画选项；回放 replay 与 实时房间 room 都支持该 API。
+> 2.2.0新增 API，2.2.2 增加动画选项；回放 replay 与 实时房间 room 都支持该 API。
 
-白板内部有一个`视觉矩形`(宽高+左上角坐标)的概念，用以表示用户白板必须容纳的区域。（可以简单理解为`视野`）。
+白板内部有一个`视觉矩形`\(宽高+左上角坐标\)的概念，用以表示用户白板必须容纳的区域。（可以简单理解为`视野`）。
 
 ### TypeScript 定义
 
@@ -223,7 +220,7 @@ room.moveCameraToContain({
 });
 ```
 
->如果 ppt 的宽高比例与白板`div`不一致，`sdk`会调整用户最终的`视觉矩形`，保证传入的范围，能够完整的被显示出来。该行为逻辑，与`主播`和`观众`的白板 div不一致时的处理逻辑类似。
+> 如果 ppt 的宽高比例与白板`div`不一致，`sdk`会调整用户最终的`视觉矩形`，保证传入的范围，能够完整的被显示出来。该行为逻辑，与`主播`和`观众`的白板 div不一致时的处理逻辑类似。
 
 #### 2. 回到原点，并调整视觉矩形大小
 
@@ -240,10 +237,9 @@ room.moveCameraToContain({
 
 ## 锁定视角
 
->2.2.0 新增 API
+> 2.2.0 新增 API
 
-该方法将禁止用户通过鼠标滚轮缩放、手势，抓手工具等行为，来主动修改视角。但是仍然可以使用教具。
-开发者仍然可以通过`moveCamera`,`moveCameraToContain`API 修改用户的位置。
+该方法将禁止用户通过鼠标滚轮缩放、手势，抓手工具等行为，来主动修改视角。但是仍然可以使用教具。 开发者仍然可以通过`moveCamera`,`moveCameraToContain`API 修改用户的位置。
 
 ```typescript
 /// Displayer.d.ts
@@ -265,8 +261,8 @@ room.disableCameraTransform = false;
 视野范围限制由三部分组成：
 
 1. 坐标中心
-1. 宽高
-1. 最大最小限制
+2. 宽高
+3. 最大最小限制
 
 `sdk`首先保证把用户视野限定在以坐标中心+宽高形成的范围内，然后再通过最大最小限制来限制用户可以进行缩放的比例。
 
@@ -335,7 +331,7 @@ room.setCameraBound({
 });
 ```
 
-以上代码会将视角限制在一个以 (x: 120, y: 320) 坐标为中点的，宽为 200，高为 300 的矩形范围之内。
+以上代码会将视角限制在一个以 \(x: 120, y: 320\) 坐标为中点的，宽为 200，高为 300 的矩形范围之内。
 
 如果你希望取消视角范围限制，可以执行如下代码。
 
@@ -363,7 +359,7 @@ whiteWebSdk.joinRoom({
 });
 ```
 
-不但 ``room`` 可以设置视角范围限制，``player`` 也可以。
+不但 `room` 可以设置视角范围限制，`player` 也可以。
 
 ```javascript
 player.setCameraBound({
@@ -374,8 +370,5 @@ player.setCameraBound({
 });
 ```
 
->为房间设置或初始化视角范围仅仅对自己生效，不会影响房间的其他用户。
+> 为房间设置或初始化视角范围仅仅对自己生效，不会影响房间的其他用户。
 
-## 相关文档
-
-[主播一对多业务实现](blog/broadcast.md)

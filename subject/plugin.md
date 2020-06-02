@@ -4,27 +4,17 @@
 
 **集成前提**
 
-> SDK 版本升级到 2.5.4 以上 (iOS 端可以显示的版本为: 2.5.7，Android 端可以显示的版本为： 2.5.1)。
-> 如果插入调用无效，说明是在 2.3.x 的旧版环境，请联系我们切换到支持 plugin 环境（support@netless.link）。
+> SDK 版本升级到 2.5.4 以上 \(iOS 端可以显示的版本为: 2.5.7，Android 端可以显示的版本为： 2.5.1\)。 如果插入调用无效，说明是在 2.3.x 的旧版环境，请联系我们切换到支持 plugin 环境（support@netless.link）。
 
 在一个白板上面控制视频、音频的播放、暂停、拖动进度条。效果如下：
 
 **视频**
 
-<video style="width: 100%" loop="loop" autoplay="autoplay" id="video">
-  <source id="mp4" src="https://white-sdk.oss-cn-beijing.aliyuncs.com/video/video_board.mp4">
-</video>
-
-
 **音频**
-
-<video style="width: 100%" loop="loop" autoplay="autoplay" id="video">
-  <source id="mp4" src="https://white-sdk.oss-cn-beijing.aliyuncs.com/video/audio_plugin.mp4">
-</video>
 
 ## 安装 cursor-adapter 库
 
-``` bash
+```bash
 npm install @netless/white-video-plugin -save
 npm install @netless/white-audio-plugin -save
 
@@ -36,7 +26,7 @@ yarn add @netless/white-audio-plugin
 
 ## 载入 plugin
 
-```tsx
+```text
     import { WhiteWebSdk, createPlugins } from "white-web-sdk";
     // 1、引入对应的库 videoPlugin
     import {videoPlugin} from "@netless/white-video-plugin";
@@ -51,7 +41,7 @@ yarn add @netless/white-audio-plugin
 
 ## 启用 plugin
 
-```tsx
+```text
     // 5、插入视频 plugin
     room.insertPlugin("video", {
         originX: 0, // 插入视频的相对位置 originX: 0 originY: 0 是正中间
@@ -73,3 +63,4 @@ yarn add @netless/white-audio-plugin
         },
     });
 ```
+

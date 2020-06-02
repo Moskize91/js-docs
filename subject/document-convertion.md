@@ -4,15 +4,14 @@
 
 sdk 服务器提供两种方式将大部分文档转换成白板可用的资源：
 
-1. [文档转图片:word,pdf,ppt,pptx——静态转换](server/api/static-conversion.md)
-1. [文档转网页:pptx——动态转换](server/api/dynamic-conversion.md)
+1. [文档转图片:word,pdf,ppt,pptx——静态转换](https://developer.netless.group/server/api-reference/docucment-convertion)
+2. [文档转网页:pptx——动态转换](https://developer.netless.group/server/api-reference/docucment-convertion)
 
->请确保在[console](https://console.herewhite.com) 开启对应转换服务。
+> 请确保在[console](https://console.herewhite.com) 开启对应转换服务。
 
 ## 转换任务
 
->转换服务实际上是几个网络请求拼接，将网络可见地址传给 sdk服务器，并轮询请求。
->SDK 内部，已经将转换任务处理封装成了`pptConverter`类，开发者无需关心与 sdk 端交互，对于动静态转换，也只需要确认传入的 url 文件类型以及转换类型匹配即可。
+> 转换服务实际上是几个网络请求拼接，将网络可见地址传给 sdk服务器，并轮询请求。 SDK 内部，已经将转换任务处理封装成了`pptConverter`类，开发者无需关心与 sdk 端交互，对于动静态转换，也只需要确认传入的 url 文件类型以及转换类型匹配即可。
 
 ### Typescript 方法签名
 
@@ -113,8 +112,7 @@ room.pptPreviousStep() // 上一步（上一页）
 
 ### 自定义字体
 
-`pptx`中，如果包含了非常规字体（付费字体），开发者可以在初始化时，配置自定义字体映射来支持。
-该 API 需要一个网络地址，开发者需要将字体文件上传到开发者自己的业务服务器或云存储中。然后在初始化`sdk`时，传入`fonts`字段。
+`pptx`中，如果包含了非常规字体（付费字体），开发者可以在初始化时，配置自定义字体映射来支持。 该 API 需要一个网络地址，开发者需要将字体文件上传到开发者自己的业务服务器或云存储中。然后在初始化`sdk`时，传入`fonts`字段。
 
 ```javascript
 const whiteWebSDK = new WhiteWebSdk({
@@ -123,6 +121,7 @@ const whiteWebSDK = new WhiteWebSdk({
     "Calibri": "https://your-cdn.com/Calibri.ttf",
     "宋体": "https://your-cdn.com/Songti.ttf",
     "楷体": "https://your-cdn.com/Kaiti.ttf",
-	},
+    },
 });
 ```
+

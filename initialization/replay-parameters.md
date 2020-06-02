@@ -15,7 +15,7 @@ replayRoom(params: ReplayRoomParams, callbacks?: PlayerCallbacks): Promise<Playe
 
 ### 示例代码
 
-```js
+```javascript
 whiteWebSdk.replayRoom({
     room: "room",
     roomToken: "roomToken",
@@ -55,14 +55,14 @@ type ReplayRoomParams = {
 }
 ```
 
-| 参数 |  描述 | 备注 |
-| ---- | ---- | --- |
-| **uuid** | 回放房间的 uuid |必填，且房间必须为`可回放模式`|
-| slice | 回放房间 分片地址 |sdk 会根据`beginTimestamp`与`duration`参数，查找对应`room`中的数据，无需填写|
+| 参数 | 描述 | 备注 |
+| :--- | :--- | :--- |
+| **uuid** | 回放房间的 uuid | 必填，且房间必须为`可回放模式` |
+| slice | 回放房间 分片地址 | sdk 会根据`beginTimestamp`与`duration`参数，查找对应`room`中的数据，无需填写 |
 | **roomToken** | 房间鉴权 token | 必填 |
 | beginTimestamp | 开始回放的 Unix 时间戳（毫秒） | 可选，若不填，则从房间创建时开始回放 |
-| duration | 回放持续时长（毫秒）| 可选，若不填，则持续到最后一次用户全部退出的时间 |
-| mediaURL | 音视频地址（由sdk负责同步播放状态）| 可选，如果有，白板会统一播放进度和播放状态，白板或者媒体文件进入缓冲状态时，都会进行缓冲状态（PlayerPhase进入缓冲状态）|
+| duration | 回放持续时长（毫秒） | 可选，若不填，则持续到最后一次用户全部退出的时间 |
+| mediaURL | 音视频地址（由sdk负责同步播放状态） | 可选，如果有，白板会统一播放进度和播放状态，白板或者媒体文件进入缓冲状态时，都会进行缓冲状态（PlayerPhase进入缓冲状态） |
 
 ## PlayerCallbacks 参数说明
 
@@ -80,22 +80,23 @@ type PlayerCallbacks = {
 
 ### **onHandToolActive**
 
-```js
+```javascript
 抓手工具激活/取消回调
 ```
 
 ### **onPPTLoadProgress**
 
 * TypeScript 签名
-```typescript
-(uuid: string, progress: number) => void;
-```
 
-```js
+  ```typescript
+  (uuid: string, progress: number) => void;
+  ```
+
+```javascript
 ppt 预加载缓存回调，uuid 为 ppt 转换时的 taskId，progress 为 0~1 之间的两位小数。
 ```
 
->只有在初始化 SDK 时，`preloadDynamicPPT`，设置为 true 时，该回调才有用。
+> 只有在初始化 SDK 时，`preloadDynamicPPT`，设置为 true 时，该回调才有用。
 
 ### **onPhaseChanged**
 
@@ -116,36 +117,32 @@ export enum PlayerPhase {
 }
 ```
 
-```js
+```javascript
 播放器状态变化回调
 ```
 
 ### **onLoadFirstFrame**
 
-```js
+```javascript
 首帧数据加载完成，房间状态由`WaitingFirstFrame`变为其他状态。
 ```
 
 ### **onPlayerStateChanged**
 
-```js
+```javascript
 房间状态发生改变时，会回调该 API。
 该回调返回的`PlayerState`只包含发生变化的房间状态字段。
 ```
 
 ### **onStoppedWithError**
 
-```js
+```javascript
 出现错误，播放器中止播放。
 ```
 
 ### **onScheduleTimeChanged**
 
-```js
+```javascript
 时间进度回调
 ```
 
-## 推荐阅读
-
-1. [状态监听](../features/state.md)
-1. [自定义事件-监听、注销](../features/events.md)
