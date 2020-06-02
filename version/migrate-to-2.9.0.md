@@ -201,7 +201,30 @@ room.refreshViewSize();
 player.refreshViewSize();
 ```
 
+## 插入图片参数
 
+如果调用了如下代码。
 
+```javascript
+room.insertImage({
+    uuid: uuid,
+    centerX: centerX,
+    centerY: centerY,
+    width: width,
+    height: height,
+});
+```
 
+应该替换成如下代码。
+
+```javascript
+room.insertImage({
+    uuid: uuid,
+    centerX: centerX,
+    centerY: centerY,
+    width: width,
+    height: height,
+    locked: false, // 新增 locked 字段
+});
+```
 
