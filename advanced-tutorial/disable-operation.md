@@ -6,7 +6,7 @@ description: 禁止设备操作、只读模式
 
 默认情况下，任何进如房间的用户都可操作白板。但有时，业务场景需要对加入房间的不同用户的操作权限加以限制。
 
-到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经获取到实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议先阅读[《安装》](https://developer.netless.group/javascript/advanced-tutorial/installation)[《实时房间》](https://developer.netless.group/javascript/advanced-tutorial/realtime-room)。
+到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经获取到实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议先阅读[《安装》](/javascript/advanced-tutorial/installation)[《实时房间》](/javascript/advanced-tutorial/realtime-room)。
 
 ## 禁止设备操作
 

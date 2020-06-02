@@ -115,7 +115,7 @@ export enum RenderEngine {
 是否预先加载动态 PPT 中的图片，选择 true，会在第一页时，就加载所有图片，从而保证翻页时，能够立即显示图片。
 ```
 
-> 预加载进度回调，可以在初始化 room player 时，进行配置。可以查看[房间参数](https://developer.netless.group/javascript/initialization/room-parameters)与[回放参数](https://developer.netless.group/javascript/initialization/replay-parameters)中 onPPTLoadProgress 配置。
+> 预加载进度回调，可以在初始化 room player 时，进行配置。可以查看[房间参数](/javascript/initialization/room-parameters)与[回放参数](/javascript/initialization/replay-parameters)中 onPPTLoadProgress 配置。
 
 ### loggerOptions: 日志上报配置
 
@@ -164,6 +164,6 @@ export enum RenderEngine {
 
 ## 推荐阅读
 
-1. [房间参数](https://developer.netless.group/javascript/initialization/room-parameters)
-2. [回放参数](https://developer.netless.group/javascript/initialization/replay-parameters)
+1. [房间参数](/javascript/initialization/room-parameters)
+2. [回放参数](/javascript/initialization/replay-parameters)
 
