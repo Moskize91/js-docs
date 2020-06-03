@@ -6,7 +6,7 @@ description: 自定义事件、Global State
 
 互动白板的状态同步是基于 Netless 的实时信令同步网络实现的。实际上，你可以把你自己的自定义业务逻辑通过这套信令同步网络广播到全房间。
 
-到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经获取到实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议先阅读[《安装》](https://developer.netless.group/javascript/advanced-tutorial/installation)[《实时房间》](https://developer.netless.group/javascript/advanced-tutorial/realtime-room)。
+到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经获取到实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议先阅读[《安装》](https://developer.netless.link/javascript/advanced-tutorial/installation)[《实时房间》](https://developer.netless.link/javascript/advanced-tutorial/realtime-room)。
 
 ## 自定义事件
 
@@ -38,7 +38,7 @@ var event = "ChatMessage"; // 你希望注销监听的自定义事件名称
 room.removeMagixEventListener(event, onReceivedChatMessage);
 ```
 
-如果想了解更多，可以继续阅读[《自定义事件》](https://developer.netless.group/documents/client/custom-event)。
+如果想了解更多，可以继续阅读[《自定义事件》](https://developer.netless.link/documents/client/custom-event)。
 
 ## Global State
 
@@ -75,7 +75,7 @@ whiteWebSdk.joinRoom(joinRoomParams, {
 });
 ```
 
-如果想了解更多，可以继续阅读[《Global State ｜ 房间业务状态管理》](https://developer.netless.group/documents/client/room-business-state-management#global-state)。
+如果想了解更多，可以继续阅读[《Global State ｜ 房间业务状态管理》](https://developer.netless.link/documents/client/room-business-state-management#global-state)。
 
 ## 如何选择
 

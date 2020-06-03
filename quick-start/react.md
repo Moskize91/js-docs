@@ -12,7 +12,7 @@ description: 用 React 快速开发一个互动白板应用
 
 ## 准备工作
 
-你可以阅读[《应用与权限》](https://developer.netless.group/documents/guan-li-kong-zhi-tai/applications-and-authority)来了解具体操作。成功之后，你会获得如下内容。
+你可以阅读[《应用与权限》](https://developer.netless.link/documents/guan-li-kong-zhi-tai/applications-and-authority)来了解具体操作。成功之后，你会获得如下内容。
 
 ```bash
 # App Identifier:

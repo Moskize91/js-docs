@@ -52,7 +52,7 @@ export declare enum ViewMode {
 };
 ```
 
-> 观众/跟随模式，进行任何操作，都会主动变更为`自由模式`，不再跟随主播。如果要保证禁止该行为，请通过[白板操作-禁止操作](https://developer.netless.group/javascript/subject/whiteboard-operation#jin-zhi-cao-zuo)API禁止用户所有操作。
+> 观众/跟随模式，进行任何操作，都会主动变更为`自由模式`，不再跟随主播。如果要保证禁止该行为，请通过[白板操作-禁止操作](https://developer.netless.link/javascript/subject/whiteboard-operation#jin-zhi-cao-zuo)API禁止用户所有操作。
 
 ### 示例代码
 

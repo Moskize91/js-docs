@@ -2,7 +2,7 @@
 
 ## 禁止操作
 
-> 2.2.0 开始，该 API 可以由以下两个 API 代替: 1. 视角锁定 API：`disableCameraTransform` \(详情请参考 [视角操作-锁定视角](https://developer.netless.group/javascript/subject/view-operation)\)； 1. 禁用教具 API：`disableDeviceInputs` \(详情请参考 [教具操作-禁用教具](https://developer.netless.group/javascript/subject/appliance-operation#jin-yong-jiao-ju)\)
+> 2.2.0 开始，该 API 可以由以下两个 API 代替: 1. 视角锁定 API：`disableCameraTransform` \(详情请参考 [视角操作-锁定视角](https://developer.netless.link/javascript/subject/view-operation)\)； 1. 禁用教具 API：`disableDeviceInputs` \(详情请参考 [教具操作-禁用教具](https://developer.netless.link/javascript/subject/appliance-operation#jin-yong-jiao-ju)\)
 
 ```javascript
 /// room.d.ts
