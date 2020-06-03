@@ -8,6 +8,10 @@ Netless 以记录信令的方式实现录制、回放功能。相较于传统的
 
 到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目。如果没有，你可能跳过了之前的章节，强烈建议先阅读[《安装》](https://developer.netless.group/javascript/advanced-tutorial/installation)。
 
+{% hint style="info" %}
+本章教程只会把房间状态管理的相关内容涉猎一遍。如果想深入了解相关内容，可以在阅读完本章后，进一步阅读[《录制与回放》](https://developer.netless.group/documents/client/record-and-replay)。
+{% endhint %}
+
 ## 开启云端录制
 
 在创建房间之初，可以开启云端录制功能。通过在调用 Netless 服务端 API 创建房间时，加入参数 `isRecord: true` 即可开启。
@@ -61,7 +65,7 @@ var replayRoomParams = {
 };
 whiteWebSdk.replayRoom(replayRoomParams).then(function (player) {
     // 获取到回放数据，成功初始化播放器实例
-    
+
 }).catch(function(err) {
     // 获取回放数据失败
     console.error(err);
@@ -73,7 +77,7 @@ whiteWebSdk.replayRoom(replayRoomParams).then(function (player) {
 ```javascript
 whiteWebSdk.replayRoom({
     ...otherReplayRoomParams,
-    
+
     beginTimestamp: new Date("2020-01-01 08:00:00").getTime(),
     duration: 45 * 60 * 1000,
 });
@@ -263,7 +267,7 @@ var replayRange = {
 };
 whiteWebSdk.isPlayable(replayRange).then(function(isPlayable) {
     // isPlayable === true 表示，这个时间段的录像已生成，可以播放
-    
+
 }).catch(fucntion(err) {
     // 获取失败
     console.error(err);

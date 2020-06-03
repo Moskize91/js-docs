@@ -38,6 +38,8 @@ var event = "ChatMessage"; // 你希望注销监听的自定义事件名称
 room.removeMagixEventListener(event, onReceivedChatMessage);
 ```
 
+如果想了解更多，可以继续阅读[《自定义事件》](https://developer.netless.group/documents/client/custom-event)。
+
 ## Global State
 
 这是一个类型为字典 object 的全房间共享的全局变量。房间里任何用户都可以读取它，以及监听它的变化，任何可写用户都可以修改它。
@@ -73,11 +75,13 @@ whiteWebSdk.joinRoom(joinRoomParams, {
 });
 ```
 
+如果想了解更多，可以继续阅读[《Global State ｜ 房间业务状态管理》](https://developer.netless.group/documents/client/room-business-state-management#global-state)。
+
 ## 如何选择
 
 无论自定义事件，还是 Global State，既可以监听它们的变化，也可以在房间引发它们来传递信息。那么，我们设计自定义行为的时候，应该选哪一个呢？
 
-#### 自定义行为会有持续影响时，应该选 Global State
+### 自定义行为会有持续影响时，应该选 Global State
 
 举个例子，假如你要设计一个自定义行为：任何加入房间的人，都可以修改 UI 界面的 Logo。
 
@@ -88,7 +92,7 @@ whiteWebSdk.joinRoom(joinRoomParams, {
 
 想一想，该需求，能否用自定义事件实现？实际上是不可能的。因为自定义事件是一瞬间的，它无法产生持续影响。想象一下，如果某个用户很晚才加入房间，那么他无法知晓在他尚未加入房间的这段时间内广播过多少自定义事件。该用户甚至无法知晓当前房间的 Logo 应该长成什么样。
 
-#### 只关心自定义行为的瞬间反应时，应该选择自定义事件
+### 只关心自定义行为的瞬间反应时，应该选择自定义事件
 
 举个例子，房间内所有成员可以点赞，点赞会让所有人的屏幕上播一段点赞动画。这一行为显然用自定义事件实现是最方便的。我们不关心点赞的结果，因为这只是一段动画，播放完就完了。
 

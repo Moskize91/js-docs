@@ -182,7 +182,7 @@ class App extends React.Component {
 
     render() {
         var whiteboardView = null;
-        
+
         // 创建并加入房间是一个异步操作。
         // 如果 this.state.room 还没准备好，则不显示白板。
         if (this.state.room) {
