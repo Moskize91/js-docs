@@ -4,7 +4,7 @@
 
 ## 普通教具
 
-`room`的`state`中，存在`memberState`属性（可以阅读[状态管理](https://developer.netless.group/documents/client/realtime-room-state-management)查看更多`state`信息）。 普通教具都可以通过`memberState`进行描述。
+`room`的`state`中，存在`memberState`属性（可以阅读[状态管理](https://developer.netless.link/documents/client/realtime-room-state-management)查看更多`state`信息）。 普通教具都可以通过`memberState`进行描述。
 
 ### MemberState 结构
 
@@ -61,7 +61,7 @@ const appliance = room.state.memberState.currentApplianceName;
 
 橡皮擦可以额外配置，是否能够擦除图片：
 
-1. 在初始化时，根据[初始化参数-房间参数](https://developer.netless.group/javascript/initialization/room-parameters)中的`disableEraseImage`字段配置:`是否可以擦除图片（默认可以）`
+1. 在初始化时，根据[初始化参数-房间参数](https://developer.netless.link/javascript/initialization/room-parameters)中的`disableEraseImage`字段配置:`是否可以擦除图片（默认可以）`
 2. 设置 `room.disableEraseImage` 属性。
 
 ## 图片（网络地址）
@@ -120,7 +120,7 @@ room.completeImageUpload(uuid, imageUrl)
 
 ### 快捷键设置
 
-请阅读[初始化参数-SDK参数](https://developer.netless.group/javascript/initialization/sdk-parameters)中的`handToolKey`字段说明。
+请阅读[初始化参数-SDK参数](https://developer.netless.link/javascript/initialization/sdk-parameters)中的`handToolKey`字段说明。
 
 ### 主动激活/关闭
 
@@ -135,7 +135,7 @@ room.handToolActive = false;
 
 ### 激活/关闭回调
 
-当抓手工具被激活（包括主动激活）时，会回调[初始化参数-房间参数](https://developer.netless.group/javascript/initialization/room-parameters)中`callbacks`的`onHandToolActive` 方法。
+当抓手工具被激活（包括主动激活）时，会回调[初始化参数-房间参数](https://developer.netless.link/javascript/initialization/room-parameters)中`callbacks`的`onHandToolActive` 方法。
 
 ## 禁用教具
 

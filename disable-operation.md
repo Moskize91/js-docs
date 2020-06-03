@@ -4,7 +4,7 @@ description: 禁止设备操作、只读模式
 
 # 禁止操作
 
-到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经加入并获取实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](https://developer.netless.group/javascript/installation)[《实时房间](https://developer.netless.group/javascript/realtime-room)》。
+到此章为止，我们假设你已经将 Netless 互动白板 SDK 安装并引入了项目，并且已经加入并获取实时房间实例 `room` 对象。如果没有，你可能跳过了之前的章节，强烈建议你先阅读[《安装》](https://developer.netless.link/javascript/installation)[《实时房间](https://developer.netless.link/javascript/realtime-room)》。
 
 ## 禁止设备操作
 

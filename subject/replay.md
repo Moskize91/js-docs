@@ -2,8 +2,8 @@
 
 ## 前提条件
 
-> 1. 确定向服务器请求创建房间时，房间类型是「`可回放房间`」，详情请查看[服务端文档-白板类型](https://developer.netless.group/documents/client/realtime-room-state-management)。
-> 2. 阅读[初始化参数-回放参数](https://developer.netless.group/javascript/initialization/replay-parameters)了解初始化回放时，所需要的参数。
+> 1. 确定向服务器请求创建房间时，房间类型是「`可回放房间`」，详情请查看[服务端文档-白板类型](https://developer.netless.link/documents/client/realtime-room-state-management)。
+> 2. 阅读[初始化参数-回放参数](https://developer.netless.link/javascript/initialization/replay-parameters)了解初始化回放时，所需要的参数。
 > 3. 本节中`player`为`sdk`调用`replayRoom`API 后，成功返回的`player`对象。
 
 ### white-react-sdk
@@ -22,11 +22,11 @@ class App extends React.Component {
 
 ## 音视频支持
 
-`sdk`支持在回放时传入音视频地址，具体请查看[初始化参数-回放参数](https://developer.netless.group/javascript/initialization/replay-parameters)。`sdk`会主动接管音视频播放，负责处理音视频与```sdk``player```的播放状态同步问题。 当白板回放与音视频，任意一个进入`缓冲`状态时，`sdk`会自动停止另一个的播放，等待另一方缓冲完毕，并且同时触发`player`的缓冲状态回调。
+`sdk`支持在回放时传入音视频地址，具体请查看[初始化参数-回放参数](https://developer.netless.link/javascript/initialization/replay-parameters)。`sdk`会主动接管音视频播放，负责处理音视频与```sdk``player```的播放状态同步问题。 当白板回放与音视频，任意一个进入`缓冲`状态时，`sdk`会自动停止另一个的播放，等待另一方缓冲完毕，并且同时触发`player`的缓冲状态回调。
 
 ### 音频
 
-音频，只需要根据[初始化参数-回放参数](https://developer.netless.group/javascript/initialization/replay-parameters)，配置正确的音频地址。
+音频，只需要根据[初始化参数-回放参数](https://developer.netless.link/javascript/initialization/replay-parameters)，配置正确的音频地址。
 
 ### 视频
 
@@ -71,7 +71,7 @@ import "video.js/dist/video-js.css";
 
 ## 回放时状态监听
 
-> 具体请参考[状态管理文档](https://developer.netless.group/documents/client/realtime-room-state-management)与[初始化参数-回放参数](https://developer.netless.group/javascript/initialization/replay-parameters)
+> 具体请参考[状态管理文档](https://developer.netless.link/documents/client/realtime-room-state-management)与[初始化参数-回放参数](https://developer.netless.link/javascript/initialization/replay-parameters)
 
 ## 主动操作API
 
