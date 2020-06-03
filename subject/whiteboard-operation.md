@@ -38,7 +38,7 @@ room.setWritable(false).then(function() {
 });
 ```
 
-加入房间后，可以通过如下方法切换到可写模式：
+加入房间后，可以通过如下方法切换到互动模式：
 
 ```typescript
 room.setWritable(true).then(function() {

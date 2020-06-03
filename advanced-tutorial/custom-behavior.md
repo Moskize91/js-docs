@@ -42,7 +42,7 @@ room.removeMagixEventListener(event, onReceivedChatMessage);
 
 ## Global State
 
-这是一个类型为字典 object 的全房间共享的全局变量。房间里任何用户都可以读取它，以及监听它的变化，任何可写用户都可以修改它。
+这是一个类型为字典 object 的全房间共享的全局变量。房间里任何用户都可以读取它，以及监听它的变化，任何互动模式的用户都可以修改它。
 
 通过如下代码读取 Global State。
 
