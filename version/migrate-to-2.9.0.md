@@ -17,7 +17,7 @@ var whiteWebSdk = new WhiteWebSdk({
 
 ![&#x4ECE;&#x7BA1;&#x7406;&#x63A7;&#x5236;&#x53F0;&#x83B7;&#x53D6; App Identifier](../.gitbook/assets/app-identifier-example.png)
 
-## 使用 CameraBorder 实现视角限制业务
+## 使用 CameraBound 实现视角限制业务
 
 `room` 和 `player` 对象下的如下成员已经被删除。
 
