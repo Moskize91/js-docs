@@ -1,5 +1,20 @@
 # 版本历史
 
+## 2.9.2 - 2020-06-12
+
+### 新增
+
+* `room.state` 和 `player.state` 可以配置成 MobX 的 observable 对象。
+* `room.callbacks` 和 `player.callbacks` 可以注册新监听器。
+
+### 更新
+
+* `onScheduleTimeChanged` 回调被 `onProgressTimeChanged` 代替。
+
+### 修复
+
+* 部分高版本 react 下使用 TypeScript 编译无法通过。
+
 ## 2.9.1 - 2020-06-01
 
 ### 修复
