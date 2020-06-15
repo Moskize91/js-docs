@@ -228,3 +228,21 @@ room.insertImage({
 });
 ```
 
+## 回放时间戳回调
+
+如果调用了如下代码。
+
+```typescript
+whiteWebSdk.replayRoom(playerParams, {
+    onScheduleTimeChanged: function() {...},
+});
+```
+
+应该替换成如下代码。
+
+```typescript
+whiteWebSdk.replayRoom(playerParams, {
+    onProgressTimeChanged: function() {...},
+});
+```
+
